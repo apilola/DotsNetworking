@@ -15,6 +15,7 @@ using System.Linq;
 using System.IO;
 using Unity.Collections.LowLevel.Unsafe;
 using System.Reflection;
+using UnityEngine.Profiling;
 
 namespace DotsNetworking.WorldGraph.Editor
 {
@@ -141,34 +142,46 @@ namespace DotsNetworking.WorldGraph.Editor
 
         private static void OnSceneGUI(SceneView view)
         {
-            if (!EnableMouseHover && !ShowRegionBounds) return;
-
-            Event e = Event.current;
-            
-            // Draw Bounds regardless of hover if enabled
-            if (ShowRegionBounds)
+            Profiler.BeginSample("WorldGraphTool.OnSceneGUI");
+            try
             {
-                int3 regionToDraw = _hoverRegionKey;
-                if (!_isHoverValid)
+                if (!EnableMouseHover && !ShowRegionBounds) return;
+
+                Event e = Event.current;
+                
+                // Draw Bounds regardless of hover if enabled
+                if (ShowRegionBounds)
                 {
-                    WorldGraphMath.WorldToGraph(view.camera.transform.position, out regionToDraw, out _, out _, out _);
+                    int3 regionToDraw = _hoverRegionKey;
+                    if (!_isHoverValid)
+                    {
+                        WorldGraphMath.WorldToGraph(view.camera.transform.position, out regionToDraw, out _, out _, out _);
+                    }
+                    DrawRegionGrid(regionToDraw);
                 }
-                DrawRegionGrid(regionToDraw);
+
+                if (EnableMouseHover)
+                {
+                    // Logic mostly follows old UpdateHoverTarget but static
+                    if (e.type == EventType.MouseMove)
+                    {
+                        Profiler.BeginSample("WorldGraphTool.UpdateHoverTarget");
+                        UpdateHoverTarget(e);
+                        Profiler.EndSample();
+                        view.Repaint();
+                    }
+
+                    if (e.type == EventType.Repaint)
+                    {
+                        Profiler.BeginSample("WorldGraphTool.DrawHoverTarget");
+                        DrawHoverTarget();
+                        Profiler.EndSample();
+                    }
+                }
             }
-
-            if (EnableMouseHover)
+            finally
             {
-                // Logic mostly follows old UpdateHoverTarget but static
-                if (e.type == EventType.MouseMove)
-                {
-                    UpdateHoverTarget(e);
-                    view.Repaint();
-                }
-
-                if (e.type == EventType.Repaint)
-                {
-                    DrawHoverTarget();
-                }
+                Profiler.EndSample();
             }
         }
 
@@ -208,6 +221,7 @@ namespace DotsNetworking.WorldGraph.Editor
         private static void DrawHoverTarget()
         {
             if (!_isHoverValid) return;
+            Profiler.BeginSample("WorldGraphTool.DrawHoverTarget.Body");
 
             // Draw Mouse Hit
             Handles.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
@@ -243,10 +257,12 @@ namespace DotsNetworking.WorldGraph.Editor
             DrawChunkBounds(drawRegion, drawChunk);
             UpdateAndDrawChunk(drawRegion, drawChunk, WorldGraphEditorSettings.instance.GeometryLayer, WorldGraphEditorSettings.instance.ObstacleLayer);
             DrawNeighbors(drawRegion, drawChunk);
+            Profiler.EndSample();
         }
 
         private static void DrawNeighbors(int3 currentReg, int3 currentChunk)
         {
+            Profiler.BeginSample("WorldGraphTool.DrawNeighbors");
              for (int x = -1; x <= 1; x++)
             {
                 for (int y = 1; y >= -1; y--) // Top-Down render priority
@@ -272,8 +288,8 @@ namespace DotsNetworking.WorldGraph.Editor
                             if (!chunkData.IsConnectivityCalculated) 
                                 BakeChunkConnectivity(nReg, nCh, chunkData);
 
-                            Handles.color = new Color(0, 1, 0, 0.15f); // Faint
-                            
+                            Handles.color = new Color(0, 1, 0, 0.3f); // Faint
+                            Profiler.BeginSample("WorldGraphTool.DrawNeighbors.DrawNodes");
                             for (int i = 0; i < WorldGraphConstants.NodesPerChunk; i++)
                             {
                                 float h = chunkData.Heights[i];
@@ -286,12 +302,15 @@ namespace DotsNetworking.WorldGraph.Editor
 
                                 float3 pos = WorldGraphMath.GraphToWorldBase(nReg, nCh, new int2(cx, cz));
                                 pos.y = h;
-                                Handles.DrawSolidDisc(pos, Vector3.up, WorldGraphConstants.NodeSize * 0.05f);
+                                Handles.SphereHandleCap(0, pos, Quaternion.identity, WorldGraphConstants.NodeSize * 0.1f, EventType.Repaint);
+                                //Handles.DrawSolidDisc(pos, Vector3.up, WorldGraphConstants.NodeSize * 0.05f);
                             }
+                            Profiler.EndSample();
                         }
                     }
                 }
             }
+            Profiler.EndSample();
         }
 
         private static void DrawChunkBounds(int3 regionKey, int3 chunkIdx)
@@ -312,10 +331,13 @@ namespace DotsNetworking.WorldGraph.Editor
 
         private static void UpdateAndDrawChunk(int3 regionKey, int3 chunkIdx, LayerMask groundMask, LayerMask obstacleMask)
         {
+            Profiler.BeginSample("WorldGraphTool.UpdateAndDrawChunk");
             ulong address = WorldGraphMath.PackChunkAddress(regionKey, chunkIdx);
 
             // Preload neighbor baked chunks if not already cached to reduce false positives.
+            Profiler.BeginSample("WorldGraphTool.PreloadNeighborChunksFromBlob");
             PreloadNeighborChunksFromBlob(regionKey, chunkIdx);
+            Profiler.EndSample();
             
             if (_lastHoveredAddress != address)
             {
@@ -335,23 +357,31 @@ namespace DotsNetworking.WorldGraph.Editor
 
             if (!TryGetChunk(address, out EditorChunkData chunkData))
             {
+                Profiler.BeginSample("WorldGraphTool.ScanChunk");
                 chunkData = new EditorChunkData();
                 ScanChunk(regionKey, chunkIdx, groundMask, obstacleMask, chunkData);
                 AddChunkToCache(address, chunkData);
+                Profiler.EndSample();
             }
 
              // Blob Check
+            Profiler.BeginSample("WorldGraphTool.TryGetBlobChunk");
             bool usingBlob = TryGetBlobChunk(regionKey, chunkIdx, out EditorChunkData blobData);
+            Profiler.EndSample();
             bool isGeomDirty = false;
 
             if (!chunkData.IsConnectivityCalculated)
             {
+                Profiler.BeginSample("WorldGraphTool.BakeChunkConnectivity");
                 BakeChunkConnectivity(regionKey, chunkIdx, chunkData);
+                Profiler.EndSample();
             }
 
             if (usingBlob)
             {
+                Profiler.BeginSample("WorldGraphTool.IsChunkDifferent");
                 isGeomDirty = IsChunkDifferent(chunkData, blobData);
+                Profiler.EndSample();
                 if(VisualizeBaked)
                 {
                     // Draw Baked instead of Live
@@ -383,56 +413,66 @@ namespace DotsNetworking.WorldGraph.Editor
                 
                 float3 pos = WorldGraphMath.GraphToWorldBase(regionKey, chunkIdx, new int2(x, z));
                 pos.y = h;
-                Handles.DrawSolidDisc(pos, Vector3.up, WorldGraphConstants.NodeSize * 0.05f);
+                Handles.SphereHandleCap(0, pos, Quaternion.identity, WorldGraphConstants.NodeSize * 0.1f, EventType.Repaint);
+                //Handles.DrawSolidDisc(pos, Vector3.up, WorldGraphConstants.NodeSize * 0.05f);
             }
+            Profiler.EndSample();
         }
         
         private static unsafe bool TryGetBlobChunk(int3 region, int3 chunk, out EditorChunkData data)
         {
-            data = null;
-            ulong regionAddress = WorldGraphMath.PackChunkAddress(region, int3.zero, WorldGraphEditorSettings.instance.GetCurrentSceneWorldId());
-            
-            if (!_loadedHandles.ContainsKey(regionAddress))
+            Profiler.BeginSample("WorldGraphTool.TryGetBlobChunk.Internal");
+            try
             {
-                var handle = NavigationAssetProvider.CheckOut(regionAddress);
-                if (handle.IsValid)
+                data = null;
+                ulong regionAddress = WorldGraphMath.PackChunkAddress(region, int3.zero, WorldGraphEditorSettings.instance.GetCurrentSceneWorldId());
+                
+                if (!_loadedHandles.ContainsKey(regionAddress))
                 {
-                    _loadedHandles[regionAddress] = handle;
-                }
-            }
-
-            if (_loadedHandles.TryGetValue(regionAddress, out var rHandle))
-            {
-                if (!rHandle.IsValid)
-                {
-                    _loadedHandles.Remove(regionAddress);
-                    return false;
+                    var handle = NavigationAssetProvider.CheckOut(regionAddress);
+                    if (handle.IsValid)
+                    {
+                        _loadedHandles[regionAddress] = handle;
+                    }
                 }
 
-                ref Region r = ref rHandle.Blob.Value;
-                ushort morton = WorldGraphMath.EncodeChunkToMorton(chunk);
-            
-                // Check Bounds
-                if (morton < r.ChunkLookup.Length) 
+                if (_loadedHandles.TryGetValue(regionAddress, out var rHandle))
                 {
-                     short idx = r.ChunkLookup[morton];
-                     if (idx != -1 && idx < r.Chunks.Length)
-                     {
-                         EditorChunkData d = new EditorChunkData();
-                         ref Chunk c = ref r.Chunks[idx];
-                     
-                         for(int i=0; i<WorldGraphConstants.NodesPerChunk; i++)
+                    if (!rHandle.IsValid)
+                    {
+                        _loadedHandles.Remove(regionAddress);
+                        return false;
+                    }
+
+                    ref Region r = ref rHandle.Blob.Value;
+                    ushort morton = WorldGraphMath.EncodeChunkToMorton(chunk);
+                
+                    // Check Bounds
+                    if (morton < r.ChunkLookup.Length) 
+                    {
+                         short idx = r.ChunkLookup[morton];
+                         if (idx != -1 && idx < r.Chunks.Length)
                          {
-                             d.Heights[i] = c.Nodes[i].Y;
-                             d.Flags[i] = c.Nodes[i].ExitMask;
+                             EditorChunkData d = new EditorChunkData();
+                             ref Chunk c = ref r.Chunks[idx];
+                         
+                             for(int i=0; i<WorldGraphConstants.NodesPerChunk; i++)
+                             {
+                                 d.Heights[i] = c.Nodes[i].Y;
+                                 d.Flags[i] = c.Nodes[i].ExitMask;
+                             }
+                             d.IsConnectivityCalculated = true; // Cached blobs are pre-calc
+                             data = d;
+                             return true;
                          }
-                         d.IsConnectivityCalculated = true; // Cached blobs are pre-calc
-                         data = d;
-                         return true;
-                     }
+                    }
                 }
+                return false;
             }
-            return false;
+            finally
+            {
+                Profiler.EndSample();
+            }
         }
 
         private static bool IsChunkDifferent(EditorChunkData a, EditorChunkData b)
@@ -446,6 +486,7 @@ namespace DotsNetworking.WorldGraph.Editor
                 bool n2 = float.IsNaN(h2);
                 if (n1 != n2)
                 {
+                    return true;
                     if(n1)
                     {
                         var pos = WorldGraphMath.GraphToWorldBase(_hoverRegionKey, _hoverChunkIdx, WorldGraphMath.DecodeMortonToNode((byte)i));
@@ -456,6 +497,7 @@ namespace DotsNetworking.WorldGraph.Editor
                 }
                 else if (!n1 && Mathf.Abs(h1 - h2) > 0.05f)
                 {
+                    return true;
                     mismatchCount++;
                 }else if (!n1 && a.Flags[i] != b.Flags[i])
                 {                    //Debug.Log("Region " + _hoverRegionKey + " Chunk " + _hoverChunkIdx + " Node " + WorldGraphMath.DecodeMortonToNode((byte)i) + " Flag Mismatch: Live=" + a.Flags[i] + " Blob=" + b.Flags[i]);
@@ -463,6 +505,7 @@ namespace DotsNetworking.WorldGraph.Editor
                     Handles.color = Color.blue;
                     Handles.DrawSolidDisc(new float3(pos.x, h2, pos.z), Vector3.up, 0.05f); // Prevent unused warning
                     mismatchCount++;
+                    return true;
                 }
             }
             return mismatchCount > 0;
@@ -472,6 +515,7 @@ namespace DotsNetworking.WorldGraph.Editor
 
         private static void BakeChunkConnectivity(int3 region, int3 chunk, EditorChunkData data)
         {
+            Profiler.BeginSample("WorldGraphTool.BakeChunkConnectivity.Internal");
             // Pass 1: Raw existence
             for (int i = 0; i < WorldGraphConstants.NodesPerChunk; i++)
             {
@@ -535,6 +579,7 @@ namespace DotsNetworking.WorldGraph.Editor
                 if (!hasCoreNeighbor) data.Flags[i] |= MovementFlags.Unreachable;
             }
             data.IsConnectivityCalculated = true;
+            Profiler.EndSample();
         }
 
         private static int CountSetBits(ulong value)
@@ -627,6 +672,7 @@ namespace DotsNetworking.WorldGraph.Editor
 
         private static void ScanChunk(int3 regionKey, int3 chunkIdx, LayerMask groundMask, LayerMask obstacleMask, EditorChunkData data)
         {
+            Profiler.BeginSample("WorldGraphTool.ScanChunk.Internal");
             int nodeCount = WorldGraphConstants.NodesPerChunk;
             
             var commands = new NativeArray<RaycastCommand>(nodeCount, Allocator.TempJob);
@@ -692,7 +738,9 @@ namespace DotsNetworking.WorldGraph.Editor
                 }
             }
             commands.Dispose(); results.Dispose(); commandsOv.Dispose(); resultsOv.Dispose();
-            InvalidateNeighbors(regionKey, chunkIdx);
+            data.IsConnectivityCalculated = false;
+            //InvalidateNeighbors(regionKey, chunkIdx);
+            Profiler.EndSample();
         }
 
         private static void InvalidateNeighbors(int3 region, int3 chunk)
@@ -742,6 +790,7 @@ namespace DotsNetworking.WorldGraph.Editor
 
         private static void PreloadNeighborChunksFromBlob(int3 regionKey, int3 chunkIdx)
         {
+            Profiler.BeginSample("WorldGraphTool.PreloadNeighborChunksFromBlob.Internal");
             for (int x = -1; x <= 1; x++)
             {
                 for (int y = -1; y <= 1; y++)
@@ -769,6 +818,7 @@ namespace DotsNetworking.WorldGraph.Editor
                     }
                 }
             }
+            Profiler.EndSample();
         }
 
         private static void AddChunkToCache(ulong address, EditorChunkData data)

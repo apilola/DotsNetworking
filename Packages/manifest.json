@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "com.bovinelabs.core": "https://gitlab.com/tertle/com.bovinelabs.core.git",
+    "com.coplaydev.unity-mcp": "https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity",
+    "com.github-glitchenzo.nugetforunity": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
     "com.unity.ai.navigation": "2.0.9",
     "com.unity.cinemachine": "3.1.5",
     "com.unity.collab-proxy": "2.10.2",
@@ -10,6 +12,7 @@
     "com.unity.inputsystem": "1.17.0",
     "com.unity.multiplayer.center": "1.0.1",
     "com.unity.netcode": "1.10.0",
+    "com.unity.nuget.newtonsoft-json": "3.2.2",
     "com.unity.render-pipelines.universal": "17.3.0",
     "com.unity.test-framework": "1.6.0",
     "com.unity.timeline": "1.8.9",

@@ -9,6 +9,15 @@
       },
       "hash": "63661c4e2df066ff435ae5b3670a1479be617c62"
     },
+    "com.coplaydev.unity-mcp": {
+      "version": "https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.0.2"
+      },
+      "hash": "e00b2aed4ff107bd7df47f03072bb0d1c23a68fc"
+    },
     "com.dotsnetworking.worldgraph": {
       "version": "file:com.dotsnetworking.worldgraph",
       "depth": 0,
@@ -19,6 +28,13 @@
         "com.unity.burst": "1.8.0",
         "com.unity.mathematics": "1.2.0"
       }
+    },
+    "com.github-glitchenzo.nugetforunity": {
+      "version": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "c2af83c9d4f8cdaada9d4a0e94de2f195d8e1d01"
     },
     "com.unity.ai.navigation": {
       "version": "2.0.9",
@@ -164,6 +180,13 @@
     "com.unity.nuget.mono-cecil": {
       "version": "1.11.6",
       "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.2.2",
+      "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"

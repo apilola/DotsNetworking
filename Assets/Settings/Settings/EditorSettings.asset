@@ -24,6 +24,8 @@ MonoBehaviour:
     Path: Assets/Settings/ObjectDefinitions
   - Key: bl.ar.objectgroup
     Path: Assets/Settings/ObjectGroups
+  - Key: bl.settings
+    Path: Assets/Settings/Settings
   prebakeScenes: []
   startupScene: {fileID: 0}
   defaultSettingsAuthoring: {fileID: 0}
