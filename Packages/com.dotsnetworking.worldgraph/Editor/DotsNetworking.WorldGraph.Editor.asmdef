@@ -1,0 +1,25 @@
+{
+    "name": "DotsNetworking.WorldGraph.Editor",
+    "rootNamespace": "DotsNetworking.WorldGraph.Editor",
+    "references": [
+        "DotsNetworking.WorldGraph",
+        "Unity.Mathematics",
+        "Unity.Entities",
+        "Unity.Collections",
+        "Unity.Transforms",
+        "Unity.Entities.Editor",
+        "Unity.Entities.Hybrid",
+        "Unity.Entities.Hybrid.HybridComponents"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

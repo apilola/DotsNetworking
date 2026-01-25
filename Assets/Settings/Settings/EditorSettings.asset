@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8edbd0fa5e59a9344a83df1b3177d250, type: 3}
+  m_Name: EditorSettings
+  m_EditorClassIdentifier: BovineLabs.Core.Editor::BovineLabs.Core.Editor.Settings.EditorSettings
+  scriptingDefineSymbols:
+  - BL_TOOLS_MENU
+  - BL_DISABLE_PHYSICS_ALWAYS_UPDATE
+  - BL_DISABLE_PHYSICS_STATES
+  - BL_CORE_EXTENSIONS
+  - BL_DISABLE_INPUT
+  - BL_DISABLE_LIFECYCLE
+  paths:
+  - Key: bl.ar.objectdefinition
+    Path: Assets/Settings/ObjectDefinitions
+  - Key: bl.ar.objectgroup
+    Path: Assets/Settings/ObjectGroups
+  prebakeScenes: []
+  startupScene: {fileID: 0}
+  defaultSettingsAuthoring: {fileID: 0}
+  settingAuthoring:
+  - World: service
+    Authoring: {fileID: 0}

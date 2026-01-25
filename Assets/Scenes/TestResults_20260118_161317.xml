@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-01-18 22:12:50Z" end-time="2026-01-18 22:12:55Z" duration="4.5161515">
+  <test-suite type="TestSuite" id="1041" name="DotsNetworking" fullname="DotsNetworking" runstate="Runnable" testcasecount="25" result="Failed" site="Child" start-time="2026-01-18 22:12:50Z" end-time="2026-01-18 22:12:55Z" duration="4.516152" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1028" name="DotsNetworking.WorldGraph.Editor.Tests.dll" fullname="C:/Projects/DotsNetworking/Library/ScriptAssemblies/DotsNetworking.WorldGraph.Editor.Tests.dll" runstate="Runnable" testcasecount="25" result="Failed" site="Child" start-time="2026-01-18 22:12:50Z" end-time="2026-01-18 22:12:55Z" duration="4.502387" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="13632" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1029" name="DotsNetworking" fullname="DotsNetworking" runstate="Runnable" testcasecount="25" result="Failed" site="Child" start-time="2026-01-18 22:12:50Z" end-time="2026-01-18 22:12:55Z" duration="4.496794" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1030" name="WorldGraph" fullname="DotsNetworking.WorldGraph" runstate="Runnable" testcasecount="25" result="Failed" site="Child" start-time="2026-01-18 22:12:50Z" end-time="2026-01-18 22:12:55Z" duration="4.491321" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestSuite" id="1031" name="Tests" fullname="DotsNetworking.WorldGraph.Tests" runstate="Runnable" testcasecount="25" result="Failed" site="Child" start-time="2026-01-18 22:12:50Z" end-time="2026-01-18 22:12:55Z" duration="4.490433" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestSuite" id="1032" name="Editor" fullname="DotsNetworking.WorldGraph.Tests.Editor" runstate="Runnable" testcasecount="25" result="Failed" site="Child" start-time="2026-01-18 22:12:50Z" end-time="2026-01-18 22:12:55Z" duration="4.489570" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-suite type="TestFixture" id="1014" name="IncrementalBakingLayersTests" fullname="DotsNetworking.WorldGraph.Tests.Editor.IncrementalBakingLayersTests" classname="DotsNetworking.WorldGraph.Tests.Editor.IncrementalBakingLayersTests" runstate="Runnable" testcasecount="13" result="Failed" site="Child" start-time="2026-01-18 22:12:50Z" end-time="2026-01-18 22:12:55Z" duration="4.488007" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-case id="1017" name="Layer3_GeometryDiff_IdentifiesChangedChunks" fullname="DotsNetworking.WorldGraph.Tests.Editor.IncrementalBakingLayersTests.Layer3_GeometryDiff_IdentifiesChangedChunks" methodname="Layer3_GeometryDiff_IdentifiesChangedChunks" classname="DotsNetworking.WorldGraph.Tests.Editor.IncrementalBakingLayersTests" runstate="Runnable" seed="329504882" result="Failed" start-time="2026-01-18 22:12:50Z" end-time="2026-01-18 22:12:55Z" duration="4.464840" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[  Chunk int3(30, 0, 30) in region int3(-1, 0, -1) should be in affected chunks
+  Expected: True
+  But was:  False
+]]></message>
+                    <stack-trace><![CDATA[at DotsNetworking.WorldGraph.Tests.Editor.IncrementalBakingLayersTests.Layer3_GeometryDiff_IdentifiesChangedChunks () [0x0025c] in .\Packages\com.dotsnetworking.worldgraph\Tests\Editor\IncrementalBakingLayersTests.cs:399
+at UnityEngine.TestTools.TestRunner.TestTaskWrapper+<Execute>d__2.MoveNext () [0x00074] in .\Library\PackageCache\com.unity.test-framework@0b7a23ab2e1d\UnityEngine.TestRunner\TestRunner\TestTaskWrapper.cs:31
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0004e] in .\Library\PackageCache\com.unity.test-framework@0b7a23ab2e1d\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+                  </failure>
+                  <output><![CDATA[Baking Region int3(0, 0, 0) for World ID 65535
+Importing .navblob asset at path: Assets/Resources/Data/World_65535/Region_0_0_0.navblob
+Region_0_0_0 imported successfully.
+BlobAssetPostProcessor detected imported .navblob asset: Assets/Resources/Data/World_65535/Region_0_0_0.navblob
+Baked Region int3(0, 0, 0) to Assets/Resources/Data/World_65535/Region_0_0_0.navblob at Address 18446462598732840960
+Baking Region int3(0, 0, -1) for World ID 65535
+Importing .navblob asset at path: Assets/Resources/Data/World_65535/Region_0_0_-1.navblob
+Region_0_0_-1 imported successfully.
+BlobAssetPostProcessor detected imported .navblob asset: Assets/Resources/Data/World_65535/Region_0_0_-1.navblob
+Baked Region int3(0, 0, -1) to Assets/Resources/Data/World_65535/Region_0_0_-1.navblob at Address 18446462603011031040
+Disposed BlobRef for key: Data/World_65535/Region_-1_0_-1
+Disposed BlobRef for key: Data/World_65535/Region_-2_-1_-2
+Disposed BlobRef for key: Data/World_65535/Region_-2_-1_-1
+Disposed BlobRef for key: Data/World_65535/Region_-2_-1_0
+Disposed BlobRef for key: Data/World_65535/Region_-2_0_-2
+Disposed BlobRef for key: Data/World_65535/Region_-2_0_-1
+Disposed BlobRef for key: Data/World_65535/Region_-2_0_0
+Disposed BlobRef for key: Data/World_65535/Region_-2_1_-2
+Disposed BlobRef for key: Data/World_65535/Region_-2_1_-1
+Disposed BlobRef for key: Data/World_65535/Region_-2_1_0
+Disposed BlobRef for key: Data/World_65535/Region_-1_-1_-2
+Disposed BlobRef for key: Data/World_65535/Region_-1_-1_-1
+Disposed BlobRef for key: Data/World_65535/Region_-1_-1_0
+Disposed BlobRef for key: Data/World_65535/Region_-1_0_-2
+Disposed BlobRef for key: Data/World_65535/Region_-1_0_0
+Disposed BlobRef for key: Data/World_65535/Region_-1_1_-2
+Disposed BlobRef for key: Data/World_65535/Region_-1_1_-1
+Disposed BlobRef for key: Data/World_65535/Region_-1_1_0
+Disposed BlobRef for key: Data/World_65535/Region_0_-1_-2
+Disposed BlobRef for key: Data/World_65535/Region_0_-1_-1
+Disposed BlobRef for key: Data/World_65535/Region_0_-1_0
+Disposed BlobRef for key: Data/World_65535/Region_0_0_-2
+Disposed BlobRef for key: Data/World_65535/Region_0_1_-2
+Disposed BlobRef for key: Data/World_65535/Region_0_1_-1
+Disposed BlobRef for key: Data/World_65535/Region_0_1_0
+Disposed BlobRef for key: Data/World_65535/Region_1_-1_-2
+Disposed BlobRef for key: Data/World_65535/Region_1_-1_-1
+Disposed BlobRef for key: Data/World_65535/Region_1_-1_0
+Disposed BlobRef for key: Data/World_65535/Region_1_0_-2
+Disposed BlobRef for key: Data/World_65535/Region_1_0_-1
+Disposed BlobRef for key: Data/World_65535/Region_1_0_0
+Disposed BlobRef for key: Data/World_65535/Region_1_1_-2
+Disposed BlobRef for key: Data/World_65535/Region_1_1_-1
+Disposed BlobRef for key: Data/World_65535/Region_1_1_0
+Disposed BlobRef for key: Data/World_65535/Region_-2_-1_1
+Disposed BlobRef for key: Data/World_65535/Region_-2_0_1
+Disposed BlobRef for key: Data/World_65535/Region_-2_1_1
+Disposed BlobRef for key: Data/World_65535/Region_-1_-1_1
+Disposed BlobRef for key: Data/World_65535/Region_-1_0_1
+Disposed BlobRef for key: Data/World_65535/Region_-1_1_1
+Disposed BlobRef for key: Data/World_65535/Region_0_-1_1
+Disposed BlobRef for key: Data/World_65535/Region_0_0_1
+Disposed BlobRef for key: Data/World_65535/Region_0_1_1
+Disposed BlobRef for key: Data/World_65535/Region_1_-1_1
+Disposed BlobRef for key: Data/World_65535/Region_1_0_1
+Disposed BlobRef for key: Data/World_65535/Region_1_1_1
+Disposed BlobRef for key: Data/World_65535/Region_0_0_0
+Disposed BlobRef for key: Data/World_65535/Region_0_0_-1
+Saving results to: C:/Users/Alec/AppData/LocalLow/DefaultCompany/DotsNetworking\TestResults.xml
+]]></output>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
