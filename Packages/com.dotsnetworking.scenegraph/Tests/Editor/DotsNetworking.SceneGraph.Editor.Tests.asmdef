@@ -1,0 +1,28 @@
+{
+    "name": "DotsNetworking.SceneGraph.Editor.Tests",
+    "rootNamespace": "DotsNetworking.SceneGraph.Tests.Editor",
+    "references": [
+        "DotsNetworking.SceneGraph",
+        "DotsNetworking.SceneGraph.Editor",
+        "Unity.Mathematics",
+        "Unity.Entities",
+        "Unity.Collections"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
+
+

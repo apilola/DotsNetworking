@@ -1,0 +1,15 @@
+{
+  "name": "com.dotsnetworking.worldgraph",
+  "version": "0.1.0",
+  "displayName": "DotsNetworking SceneGraph",
+  "description": "Scene Graph and Navigation System for DOTS Networking",
+  "dependencies": {
+    "com.unity.entities": "1.0.0",
+    "com.unity.collections": "2.0.0",
+    "com.unity.burst": "1.8.0",
+    "com.unity.mathematics": "1.2.0"
+  }
+}
+
+
+

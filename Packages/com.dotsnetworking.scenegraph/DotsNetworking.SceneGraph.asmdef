@@ -1,0 +1,22 @@
+{
+    "name": "DotsNetworking.SceneGraph",
+    "rootNamespace": "DotsNetworking.SceneGraph",
+    "references": [
+        "Unity.Entities",
+        "Unity.Collections",
+        "Unity.Burst",
+        "Unity.Mathematics"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
+
+
+

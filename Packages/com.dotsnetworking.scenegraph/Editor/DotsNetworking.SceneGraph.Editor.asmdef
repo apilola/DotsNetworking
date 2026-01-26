@@ -1,0 +1,28 @@
+{
+    "name": "DotsNetworking.SceneGraph.Editor",
+    "rootNamespace": "DotsNetworking.SceneGraph.Editor",
+    "references": [
+        "DotsNetworking.SceneGraph",
+        "Unity.Mathematics",
+        "Unity.Entities",
+        "Unity.Collections",
+        "Unity.Transforms",
+        "Unity.Entities.Editor",
+        "Unity.Entities.Hybrid",
+        "Unity.Entities.Hybrid.HybridComponents"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
+
+
+

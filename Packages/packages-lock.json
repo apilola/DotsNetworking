@@ -19,7 +19,7 @@
       "hash": "e00b2aed4ff107bd7df47f03072bb0d1c23a68fc"
     },
     "com.dotsnetworking.worldgraph": {
-      "version": "file:com.dotsnetworking.worldgraph",
+      "version": "file:com.dotsnetworking.scenegraph",
       "depth": 0,
       "source": "embedded",
       "dependencies": {
