@@ -5,7 +5,8 @@
         "Unity.Entities",
         "Unity.Collections",
         "Unity.Burst",
-        "Unity.Mathematics"
+        "Unity.Mathematics",
+        "BovineLabs.Core"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -17,6 +18,3 @@
     "versionDefines": [],
     "noEngineReferences": false
 }
-
-
-

@@ -1,5 +1,5 @@
 {
-  "name": "com.dotsnetworking.worldgraph",
+  "name": "com.dotsnetworking.scenegraph",
   "version": "0.1.0",
   "displayName": "DotsNetworking SceneGraph",
   "description": "Scene Graph and Navigation System for DOTS Networking",
