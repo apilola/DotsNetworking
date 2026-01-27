@@ -1,23 +1,28 @@
+using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
 using EntitiesHash128 = Unity.Entities.Hash128;
 
 namespace DotsNetworking.SceneGraph
 {
-    public readonly struct SectionAddress : System.IEquatable<SectionAddress>
+    [System.Serializable]
+    public struct SectionAddress : System.IEquatable<SectionAddress>
     {
-        public readonly EntitiesHash128 SceneGuid;
-        public readonly uint SectionId;
+        [UnityEngine.SerializeField, ReadOnly] private EntitiesHash128 m_SceneGuid;
+        [UnityEngine.SerializeField, ReadOnly] private uint m_SectionId;
+
+        public EntitiesHash128 SceneGuid => m_SceneGuid;
+        public uint SectionId => m_SectionId;
 
         public SectionAddress(EntitiesHash128 sceneGuid, uint sectionId)
         {
-            SceneGuid = sceneGuid;
-            SectionId = sectionId;
+            m_SceneGuid = sceneGuid;
+            m_SectionId = sectionId;
         }
 
         public bool Equals(SectionAddress other)
         {
-            return SceneGuid.Equals(other.SceneGuid) && SectionId == other.SectionId;
+            return m_SceneGuid.Equals(other.m_SceneGuid) && m_SectionId == other.m_SectionId;
         }
 
         public override bool Equals(object obj) => obj is SectionAddress other && Equals(other);
@@ -26,8 +31,8 @@ namespace DotsNetworking.SceneGraph
         {
             unchecked
             {
-                int hash = SceneGuid.GetHashCode();
-                hash = (hash * 397) ^ (int)SectionId;
+                int hash = m_SceneGuid.GetHashCode();
+                hash = (hash * 397) ^ (int)m_SectionId;
                 return hash;
             }
         }
@@ -35,7 +40,7 @@ namespace DotsNetworking.SceneGraph
         public static bool operator ==(SectionAddress left, SectionAddress right) => left.Equals(right);
         public static bool operator !=(SectionAddress left, SectionAddress right) => !left.Equals(right);
 
-        public override string ToString() => $"SectionAddress(Scene={SceneGuid};R={SectionId})";
+        public override string ToString() => $"SectionAddress(Scene={m_SceneGuid};R={m_SectionId})";
     }
 
     public readonly struct ChunkAddress : System.IEquatable<ChunkAddress>

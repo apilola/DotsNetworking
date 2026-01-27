@@ -15,6 +15,11 @@ namespace DotsNetworking.SceneGraph
             return $"Data/SubScene_{sceneGuid}/Section_{sectionIndex}";
         }
 
+        public static string GetResourceKey(EntitiesHash128 sceneGuid, uint sectionIndex)
+        {
+            return GetPath(sceneGuid, sectionIndex);
+        }
+
         public static BlobAssetHandle<Section> CheckOut(SectionAddress sectionAddress)
         {
             return _pipeline.CheckOut(GetPath(sectionAddress.SceneGuid, sectionAddress.SectionId));

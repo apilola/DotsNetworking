@@ -7,6 +7,7 @@ using Unity.Mathematics;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Entities;
+using Unity.Entities.Content;
 using DotsNetworking.SceneGraph;
 using DotsNetworking.SceneGraph.Utils;
 using Unity.Entities.Serialization;
@@ -17,6 +18,25 @@ namespace DotsNetworking.SceneGraph.Editor
 {
     public static class SceneGraphBakingService
     {
+        public static void RebuildManifest(Scene scene)
+        {
+            if (!scene.IsValid() || string.IsNullOrEmpty(scene.path))
+            {
+                Debug.LogWarning("RebuildManifest requires a valid scene with an asset path.");
+                return;
+            }
+
+            EntitiesHash128 sceneGuid = SceneGraphEditorSettings.instance.GetSceneGuidForScene(scene.path);
+            if (sceneGuid.Equals(default))
+            {
+                Debug.LogWarning($"Failed to resolve scene GUID for SubScene asset: {scene.path}");
+                return;
+            }
+
+            var manifest = GetOrCreateManifest(sceneGuid);
+            RebuildManifest(manifest, sceneGuid);
+        }
+
         public static void BakeScene(Scene targetScene, LayerMask geometryLayer, LayerMask obstacleLayer)
         {
             if (!targetScene.IsValid() || string.IsNullOrEmpty(targetScene.path))
@@ -32,7 +52,9 @@ namespace DotsNetworking.SceneGraph.Editor
                 Debug.LogWarning($"Failed to resolve scene GUID for SubScene asset: {scenePath}");
                 return;
             }
-            
+
+            var manifest = GetOrCreateManifest(sceneGuid);
+
             // 1. Calculate World Bounds based on Geometry Layer
             // This can be expensive if we search every collider, but it's an editor tool.
             var colliders = Object.FindObjectsByType<Collider>(FindObjectsSortMode.None);
@@ -132,6 +154,7 @@ namespace DotsNetworking.SceneGraph.Editor
             }
             finally
             {
+                RebuildManifest(manifest, sceneGuid);
                 foreach (var kvp in blobCache)
                 {
                     NavigationAssetProvider.Release(kvp.Key);
@@ -143,6 +166,7 @@ namespace DotsNetworking.SceneGraph.Editor
         public static void BakeSection(int3 sectionKey, LayerMask geometryLayer, LayerMask obstacleLayer, EntitiesHash128 sceneGuid)
         {
             Debug.Log($"Baking Section {sectionKey} for Scene {sceneGuid}");
+            var manifest = GetOrCreateManifest(sceneGuid);
             if (!SectionHasGeometry(sectionKey, geometryLayer))
             {
                 TryDeleteSectionAsset(sectionKey, sceneGuid);
@@ -172,6 +196,7 @@ namespace DotsNetworking.SceneGraph.Editor
             }
             finally
             {
+                RebuildManifest(manifest, sceneGuid);
                 foreach (var kvp in blobCache)
                 {
                     NavigationAssetProvider.Release(kvp.Key);
@@ -201,6 +226,88 @@ namespace DotsNetworking.SceneGraph.Editor
                 Directory.CreateDirectory(folderPath);
             }
             return $"{folderPath}/Section_{sectionIndex}.navblob";
+        }
+
+        private static string GetManifestAssetPath(EntitiesHash128 sceneGuid)
+        {
+            string folderPath = $"Assets/Resources/Data/SubScene_{sceneGuid}";
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+            return $"{folderPath}/SceneGraphManifest.asset";
+        }
+
+        private static SceneGraphManifest GetOrCreateManifest(EntitiesHash128 sceneGuid)
+        {
+            string manifestPath = GetManifestAssetPath(sceneGuid);
+            var manifest = AssetDatabase.LoadAssetAtPath<SceneGraphManifest>(manifestPath);
+            if (manifest != null)
+            {
+                return manifest;
+            }
+
+            manifest = ScriptableObject.CreateInstance<SceneGraphManifest>();
+            AssetDatabase.CreateAsset(manifest, manifestPath);
+            return manifest;
+        }
+
+        private static void RebuildManifest(SceneGraphManifest manifest, EntitiesHash128 sceneGuid)
+        {
+            if (manifest == null)
+            {
+                return;
+            }
+
+            string folderPath = $"Assets/Resources/Data/SubScene_{sceneGuid}";
+            if (!Directory.Exists(folderPath))
+            {
+                manifest.SetSections(null);
+                SaveManifest(manifest);
+                return;
+            }
+
+            var entries = new List<SectionManifestEntry>();
+            string[] guids = AssetDatabase.FindAssets("t:TextAsset", new[] { folderPath });
+            foreach (string guid in guids)
+            {
+                string assetPath = AssetDatabase.GUIDToAssetPath(guid);
+                if (!assetPath.EndsWith(".navblob", System.StringComparison.OrdinalIgnoreCase))
+                {
+                    continue;
+                }
+
+                string fileName = Path.GetFileNameWithoutExtension(assetPath);
+                if (!TryParseSectionIndex(fileName, out uint sectionIndex))
+                {
+                    continue;
+                }
+
+                var textAsset = AssetDatabase.LoadAssetAtPath<TextAsset>(assetPath);
+                var entry = new SectionManifestEntry
+                {
+                    Address = new SectionAddress(sceneGuid, sectionIndex),
+                    ResourceKey = NavigationAssetProvider.GetResourceKey(sceneGuid, sectionIndex),
+                    SectionBlob = new WeakObjectReference<TextAsset>(textAsset)
+                };
+                entries.Add(entry);
+            }
+
+            manifest.SetSections(entries);
+            SaveManifest(manifest);
+        }
+
+        private static bool TryParseSectionIndex(string fileName, out uint sectionIndex)
+        {
+            sectionIndex = 0;
+            const string prefix = "Section_";
+            if (!fileName.StartsWith(prefix, System.StringComparison.OrdinalIgnoreCase))
+            {
+                return false;
+            }
+
+            string number = fileName.Substring(prefix.Length);
+            return uint.TryParse(number, out sectionIndex);
         }
 
         private static void TryDeleteSectionAsset(int3 sectionKey, EntitiesHash128 sceneGuid)
@@ -403,6 +510,17 @@ namespace DotsNetworking.SceneGraph.Editor
             var sectionAddress = new SectionAddress(sceneGuid, sectionIndex);
             Debug.Log($"Baked Section {sectionData.SectionKey} to {assetPath} at Address {sectionAddress}");
             NavigationAssetProvider.ForceReloadOfBlobAsset(sectionAddress);
+        }
+
+        private static void SaveManifest(SceneGraphManifest manifest)
+        {
+            if (manifest == null)
+            {
+                return;
+            }
+
+            EditorUtility.SetDirty(manifest);
+            AssetDatabase.SaveAssets();
         }
 
         private static void CalculateConnectivityForChunk(

@@ -1,0 +1,543 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d1840b81557c84dbb8a6586fc44a12, type: 3}
+  m_Name: SceneGraphManifest
+  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.SceneGraphManifest
+  m_Sections:
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 364305228
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_364305228
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 3788109180
+              y: 1293505481
+              z: 662424765
+              w: 2273366947
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 364305229
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_364305229
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 1804096934
+              y: 1314926792
+              z: 1091054986
+              w: 946989792
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 364305256
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_364305256
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 2831967601
+              y: 1201004235
+              z: 3886870695
+              w: 2078928108
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 364305257
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_364305257
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 3186041969
+              y: 1079849532
+              z: 993024643
+              w: 3392856837
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 364305260
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_364305260
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 1727935533
+              y: 1325917012
+              z: 1264632495
+              w: 3660455965
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 364305261
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_364305261
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 3321693116
+              y: 1104481313
+              z: 3828473740
+              w: 3443919118
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 479348996
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_479348996
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 504794876
+              y: 1074182685
+              z: 2506149558
+              w: 2691315789
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 479348997
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_479348997
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 1509718061
+              y: 1334785285
+              z: 2867310478
+              w: 2576875680
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 479349024
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_479349024
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 4038234726
+              y: 1223602624
+              z: 2235684227
+              w: 245382250
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 479349025
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_479349025
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 1707704447
+              y: 1224880817
+              z: 2817718158
+              w: 569406720
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 479349028
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_479349028
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 953287938
+              y: 1161101174
+              z: 3905388957
+              w: 2917410071
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 479349029
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_479349029
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 1502735216
+              y: 1199620359
+              z: 4281483150
+              w: 1790452620
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 824480328
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_824480328
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 2692999812
+              y: 1270799479
+              z: 3553633206
+              w: 2630644739
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 824480329
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_824480329
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 1967390766
+              y: 1153550472
+              z: 660602013
+              w: 2523524492
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 824480332
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_824480332
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 3329095201
+              y: 1230593543
+              z: 2749911967
+              w: 3590241444
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 824480333
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_824480333
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 4077292738
+              y: 1236382711
+              z: 3319156135
+              w: 1935448520
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 824480360
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_824480360
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 4045795643
+              y: 1084502034
+              z: 1337560453
+              w: 2513608708
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 824480361
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_824480361
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 2915284847
+              y: 1233276235
+              z: 2919948687
+              w: 2657917165
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 939524096
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_939524096
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 159242728
+              y: 1324838716
+              z: 4186998914
+              w: 284267493
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 939524097
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_939524097
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 3413722122
+              y: 1294887617
+              z: 936305839
+              w: 4107879426
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 939524100
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_939524100
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 1709333871
+              y: 1315610087
+              z: 1256246938
+              w: 721526228
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 939524101
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_939524101
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 2879425514
+              y: 1124481357
+              z: 2555820967
+              w: 3846592108
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 939524128
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_939524128
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 2364013978
+              y: 1306386155
+              z: 4060327046
+              w: 3500994262
+          IdentifierType: 1
+        GenerationType: 1
+  - Address:
+      m_SceneGuid:
+        Value:
+          x: 656876763
+          y: 1335588788
+          z: 2997324208
+          w: 3593913156
+      m_SectionId: 939524129
+    ResourceKey: Data/SubScene_bd4272724b77b9f40b987a2b443c636d/Section_939524129
+    SectionBlob:
+      Id:
+        GlobalId:
+          SceneObjectIdentifier0: 606040076674693619
+          SceneObjectIdentifier1: 0
+          AssetGUID:
+            Value:
+              x: 1014137015
+              y: 1180331957
+              z: 1341353392
+              w: 3092007442
+          IdentifierType: 1
+        GenerationType: 1
