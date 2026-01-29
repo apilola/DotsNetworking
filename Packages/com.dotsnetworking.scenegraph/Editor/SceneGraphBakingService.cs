@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using BovineLabs.Core.Editor.Settings;
 using UnityEditor;
 using UnityEngine;
 using Unity.Mathematics;
@@ -33,8 +34,8 @@ namespace DotsNetworking.SceneGraph.Editor
                 return;
             }
 
-            var manifest = GetOrCreateManifest(sceneGuid);
-            RebuildManifest(manifest, sceneGuid);
+            var manifest = GetOrCreateManifest();
+            RebuildManifestForSubscene(manifest, sceneGuid, scene.path);
         }
 
         public static void BakeScene(Scene targetScene, LayerMask geometryLayer, LayerMask obstacleLayer)
@@ -53,7 +54,13 @@ namespace DotsNetworking.SceneGraph.Editor
                 return;
             }
 
-            var manifest = GetOrCreateManifest(sceneGuid);
+            var manifest = GetOrCreateManifest();
+            
+            // Ensure subscene definition exists
+            if (!manifest.TryGetSubscene(sceneGuid, out _))
+            {
+                manifest.SetSubscene(new SubsceneDefinition(sceneGuid, scenePath));
+            }
 
             // 1. Calculate World Bounds based on Geometry Layer
             // This can be expensive if we search every collider, but it's an editor tool.
@@ -154,7 +161,7 @@ namespace DotsNetworking.SceneGraph.Editor
             }
             finally
             {
-                RebuildManifest(manifest, sceneGuid);
+                RebuildManifestForSubscene(manifest, sceneGuid, scenePath);
                 foreach (var kvp in blobCache)
                 {
                     NavigationAssetProvider.Release(kvp.Key);
@@ -166,7 +173,7 @@ namespace DotsNetworking.SceneGraph.Editor
         public static void BakeSection(int3 sectionKey, LayerMask geometryLayer, LayerMask obstacleLayer, EntitiesHash128 sceneGuid)
         {
             Debug.Log($"Baking Section {sectionKey} for Scene {sceneGuid}");
-            var manifest = GetOrCreateManifest(sceneGuid);
+            var manifest = GetOrCreateManifest();
             if (!SectionHasGeometry(sectionKey, geometryLayer))
             {
                 TryDeleteSectionAsset(sectionKey, sceneGuid);
@@ -196,7 +203,7 @@ namespace DotsNetworking.SceneGraph.Editor
             }
             finally
             {
-                RebuildManifest(manifest, sceneGuid);
+                RebuildManifestForSubscene(manifest, sceneGuid, string.Empty);
                 foreach (var kvp in blobCache)
                 {
                     NavigationAssetProvider.Release(kvp.Key);
@@ -220,7 +227,7 @@ namespace DotsNetworking.SceneGraph.Editor
         private static string GetSectionAssetPath(int3 sectionKey, EntitiesHash128 sceneGuid)
         {
             uint sectionIndex = SceneGraphMath.PackSectionId(sectionKey);
-            string folderPath = $"Assets/Resources/Data/SubScene_{sceneGuid}";
+            string folderPath = $"Assets/Resources/SceneGraph/{sceneGuid}";
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
@@ -228,46 +235,39 @@ namespace DotsNetworking.SceneGraph.Editor
             return $"{folderPath}/Section_{sectionIndex}.navblob";
         }
 
-        private static string GetManifestAssetPath(EntitiesHash128 sceneGuid)
+        private static string GetSubsceneFolderPath(EntitiesHash128 sceneGuid)
         {
-            string folderPath = $"Assets/Resources/Data/SubScene_{sceneGuid}";
-            if (!Directory.Exists(folderPath))
-            {
-                Directory.CreateDirectory(folderPath);
-            }
-            return $"{folderPath}/SceneGraphManifest.asset";
+            return $"Assets/Resources/SceneGraph/{sceneGuid}";
         }
 
-        private static SceneGraphManifest GetOrCreateManifest(EntitiesHash128 sceneGuid)
+        private static SceneGraphManifest GetOrCreateManifest()
         {
-            string manifestPath = GetManifestAssetPath(sceneGuid);
-            var manifest = AssetDatabase.LoadAssetAtPath<SceneGraphManifest>(manifestPath);
-            if (manifest != null)
-            {
-                return manifest;
-            }
-
-            manifest = ScriptableObject.CreateInstance<SceneGraphManifest>();
-            AssetDatabase.CreateAsset(manifest, manifestPath);
-            return manifest;
+            return EditorSettingsUtility.GetSettings<SceneGraphManifest>();
         }
 
-        private static void RebuildManifest(SceneGraphManifest manifest, EntitiesHash128 sceneGuid)
+        private static void RebuildManifestForSubscene(SceneGraphManifest manifest, EntitiesHash128 sceneGuid, string scenePath)
         {
             if (manifest == null)
             {
                 return;
             }
 
-            string folderPath = $"Assets/Resources/Data/SubScene_{sceneGuid}";
+            string folderPath = GetSubsceneFolderPath(sceneGuid);
+            
+            // Ensure subscene definition exists
+            if (!manifest.TryGetSubscene(sceneGuid, out _))
+            {
+                manifest.SetSubscene(new SubsceneDefinition(sceneGuid, scenePath));
+            }
+            
             if (!Directory.Exists(folderPath))
             {
-                manifest.SetSections(null);
+                manifest.SetSectionsForSubscene(sceneGuid, null);
                 SaveManifest(manifest);
                 return;
             }
 
-            var entries = new List<SectionManifestEntry>();
+            var entries = new List<SectionDefinition>();
             string[] guids = AssetDatabase.FindAssets("t:TextAsset", new[] { folderPath });
             foreach (string guid in guids)
             {
@@ -284,7 +284,7 @@ namespace DotsNetworking.SceneGraph.Editor
                 }
 
                 var textAsset = AssetDatabase.LoadAssetAtPath<TextAsset>(assetPath);
-                var entry = new SectionManifestEntry
+                var entry = new SectionDefinition
                 {
                     Address = new SectionAddress(sceneGuid, sectionIndex),
                     ResourceKey = NavigationAssetProvider.GetResourceKey(sceneGuid, sectionIndex),
@@ -293,7 +293,7 @@ namespace DotsNetworking.SceneGraph.Editor
                 entries.Add(entry);
             }
 
-            manifest.SetSections(entries);
+            manifest.SetSectionsForSubscene(sceneGuid, entries);
             SaveManifest(manifest);
         }
 

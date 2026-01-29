@@ -12,7 +12,7 @@ namespace DotsNetworking.SceneGraph
 
         private static string GetPath(EntitiesHash128 sceneGuid, uint sectionIndex)
         {
-            return $"Data/SubScene_{sceneGuid}/Section_{sectionIndex}";
+            return $"SceneGraph/{sceneGuid}/Section_{sectionIndex}";
         }
 
         public static string GetResourceKey(EntitiesHash128 sceneGuid, uint sectionIndex)

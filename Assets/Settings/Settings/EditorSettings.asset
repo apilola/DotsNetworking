@@ -26,6 +26,12 @@ MonoBehaviour:
     Path: Assets/Settings/ObjectGroups
   - Key: bl.settings
     Path: Assets/Settings/Settings
+  - Key: bl.ar.subsceneset
+    Path: Assets/Settings/Scenes
+  - Key: bl.ar.subsceneeditorset
+    Path: Assets/Settings/Scenes/Editor
+  - Key: bl.ar.assetset
+    Path: Assets/Settings/Scenes/Assets
   prebakeScenes: []
   startupScene: {fileID: 0}
   defaultSettingsAuthoring: {fileID: 0}

@@ -9,7 +9,10 @@
         "Unity.Transforms",
         "Unity.Entities.Editor",
         "Unity.Entities.Hybrid",
-        "Unity.Entities.Hybrid.HybridComponents"
+        "Unity.Entities.Hybrid.HybridComponents",
+        "BovineLabs.Core",
+        "BovineLabs.Core.Editor",
+        "Unity.Scenes"
     ],
     "includePlatforms": [
         "Editor"
@@ -23,6 +26,3 @@
     "versionDefines": [],
     "noEngineReferences": false
 }
-
-
-

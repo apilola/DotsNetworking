@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using BovineLabs.Core.Editor.Settings;
 using UnityEditor;
 using UnityEngine;
 using DotsNetworking.SceneGraph.Authoring;
@@ -13,6 +15,8 @@ namespace DotsNetworking.SceneGraph.Editor
         private Vector2 m_ManifestScrollPosition;
         private SceneGraphManifest m_CachedManifest;
         private string m_CachedScenePath;
+        private List<SectionDefinition> m_CachedSceneSections;
+        private EntitiesHash128 m_CachedSceneGuid;
         private Unity.Mathematics.int3? m_HoveredSectionKey;
 
         private void OnEnable()
@@ -91,12 +95,14 @@ namespace DotsNetworking.SceneGraph.Editor
                         SceneGraphEditorSettings.instance.GeometryLayer,
                         SceneGraphEditorSettings.instance.ObstacleLayer);
                     m_CachedManifest = null; // Force refresh after bake
+                    m_CachedSceneSections = null;
                 }
 
                 if (GUILayout.Button("Rebuild SceneGraph Manifest"))
                 {
                     SceneGraphBakingService.RebuildManifest(scene);
                     m_CachedManifest = null; // Force refresh after rebuild
+                    m_CachedSceneSections = null;
                 }
             }
 
@@ -117,14 +123,16 @@ namespace DotsNetworking.SceneGraph.Editor
             if (m_CachedManifest == null || m_CachedScenePath != scenePath)
             {
                 m_CachedScenePath = scenePath;
-                m_CachedManifest = LoadManifestForScene(scenePath);
+                m_CachedManifest = LoadManifest();
+                m_CachedSceneGuid = SceneGraphEditorSettings.instance.GetSceneGuidForScene(scenePath);
+                m_CachedSceneSections = m_CachedManifest?.GetSectionsForSubscene(m_CachedSceneGuid);
             }
 
             m_ManifestFoldout = EditorGUILayout.BeginFoldoutHeaderGroup(m_ManifestFoldout, "Scene Graph Manifest");
             
             if (m_ManifestFoldout)
             {
-                if (m_CachedManifest == null || m_CachedManifest.Sections.Count == 0)
+                if (m_CachedSceneSections == null || m_CachedSceneSections.Count == 0)
                 {
                     EditorGUILayout.HelpBox("No manifest data available. Bake the scene to generate sections.", MessageType.Info);
                 }
@@ -139,7 +147,7 @@ namespace DotsNetworking.SceneGraph.Editor
 
         private void DrawManifestList()
         {
-            var sections = m_CachedManifest.Sections;
+            var sections = m_CachedSceneSections;
             
             // Header
             EditorGUILayout.LabelField($"Sections ({sections.Count})", EditorStyles.boldLabel);
@@ -173,7 +181,7 @@ namespace DotsNetworking.SceneGraph.Editor
             }
         }
 
-        private void DrawSectionEntry(SectionManifestEntry entry, int index)
+        private void DrawSectionEntry(SectionDefinition entry, int index)
         {
             var sectionKey = SceneGraphMath.UnpackSectionId(entry.Address.SectionId);
             
@@ -233,16 +241,9 @@ namespace DotsNetworking.SceneGraph.Editor
             return new Bounds(min + size * 0.5f, size);
         }
 
-        private SceneGraphManifest LoadManifestForScene(string scenePath)
+        private SceneGraphManifest LoadManifest()
         {
-            EntitiesHash128 sceneGuid = SceneGraphEditorSettings.instance.GetSceneGuidForScene(scenePath);
-            if (sceneGuid.Equals(default))
-            {
-                return null;
-            }
-
-            string manifestPath = $"Assets/Resources/Data/SubScene_{sceneGuid}/SceneGraphManifest.asset";
-            return AssetDatabase.LoadAssetAtPath<SceneGraphManifest>(manifestPath);
+            return EditorSettingsUtility.GetSettings<SceneGraphManifest>();
         }
     }
 }
