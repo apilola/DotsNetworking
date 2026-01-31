@@ -35,6 +35,4 @@ MonoBehaviour:
   prebakeScenes: []
   startupScene: {fileID: 0}
   defaultSettingsAuthoring: {fileID: 0}
-  settingAuthoring:
-  - World: service
-    Authoring: {fileID: 0}
+  settingAuthoring: []

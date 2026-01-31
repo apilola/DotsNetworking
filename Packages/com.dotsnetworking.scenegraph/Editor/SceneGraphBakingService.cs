@@ -14,13 +14,15 @@ using DotsNetworking.SceneGraph.Utils;
 using Unity.Entities.Serialization;
 using UnityEngine.SceneManagement;
 using EntitiesHash128 = Unity.Entities.Hash128;
+using BovineLabs.Core.Internal;
+using Unity.Collections.LowLevel.Unsafe;
 
 namespace DotsNetworking.SceneGraph.Editor
 {
     public static class SceneGraphBakingService
     {
         public static void RebuildManifest(Scene scene)
-        {
+        {  
             if (!scene.IsValid() || string.IsNullOrEmpty(scene.path))
             {
                 Debug.LogWarning("RebuildManifest requires a valid scene with an asset path.");
