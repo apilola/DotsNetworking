@@ -141,7 +141,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5376948684177143788, guid: a0df18054bf280f4799e6b53933a300c, type: 3}
---- !u!1 &145317471
+--- !u!1 &136309873
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,51 +149,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 145317472}
-  - component: {fileID: 145317474}
-  - component: {fileID: 145317473}
+  - component: {fileID: 136309874}
+  - component: {fileID: 136309876}
+  - component: {fileID: 136309875}
   m_Layer: 0
-  m_Name: Section_824480332 (-2, 0, 1)
+  m_Name: Section_939524128
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &145317472
+--- !u!4 &136309874
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145317471}
+  m_GameObject: {fileID: 136309873}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -383.51, y: 9.95, z: 333.92374}
+  m_LocalPosition: {x: 128.49, y: 9.95, z: 555.6262}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1525063452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &145317473
+--- !u!114 &136309875
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145317471}
+  m_GameObject: {fileID: 136309873}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
-  SectionIndex: 824480332
---- !u!114 &145317474
+  SectionIndex: 939524128
+--- !u!114 &136309876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145317471}
+  m_GameObject: {fileID: 136309873}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
@@ -206,8 +206,75 @@ MonoBehaviour:
         y: 1335588788
         z: 2997324208
         w: 3593913156
-    m_SectionId: 824480332
-  m_BlobAsset: {fileID: 606040076674693619, guid: 126fd66c70e59594f9358e3a4acbef5d, type: 3}
+    m_SectionId: 939524128
+  m_BlobAsset: {fileID: 11400000, guid: 84a607917f918724b902f9d5ce87319c, type: 2}
+--- !u!1 &149413531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 149413532}
+  - component: {fileID: 149413534}
+  - component: {fileID: 149413533}
+  m_Layer: 0
+  m_Name: Section_479349029
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &149413532
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149413531}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 384.49, y: 9.95, z: -109.48125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1525063452}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &149413533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149413531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
+  SectionIndex: 479349029
+--- !u!114 &149413534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149413531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
+  m_Address:
+    m_SceneGuid:
+      Value:
+        x: 656876763
+        y: 1335588788
+        z: 2997324208
+        w: 3593913156
+    m_SectionId: 479349029
+  m_BlobAsset: {fileID: 11400000, guid: 6296909f17453334ab2661ff274a4e35, type: 2}
 --- !u!64 &218989387
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -230,7 +297,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4757882645345260509, guid: 7bfe761b39a3e0c4f9984f4c680f86c3, type: 3}
---- !u!1 &236897677
+--- !u!1 &249352402
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -238,51 +305,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 236897678}
-  - component: {fileID: 236897680}
-  - component: {fileID: 236897679}
+  - component: {fileID: 249352403}
+  - component: {fileID: 249352405}
+  - component: {fileID: 249352404}
   m_Layer: 0
-  m_Name: Section_364305256 (-2, 0, -2)
+  m_Name: Section_824480333
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &236897678
+--- !u!4 &249352403
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 236897677}
+  m_GameObject: {fileID: 249352402}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -383.51, y: 9.95, z: -331.18375}
+  m_LocalPosition: {x: -127.51, y: 9.95, z: 333.92374}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1525063452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &236897679
+--- !u!114 &249352404
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 236897677}
+  m_GameObject: {fileID: 249352402}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
-  SectionIndex: 364305256
---- !u!114 &236897680
+  SectionIndex: 824480333
+--- !u!114 &249352405
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 236897677}
+  m_GameObject: {fileID: 249352402}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
@@ -295,8 +362,8 @@ MonoBehaviour:
         y: 1335588788
         z: 2997324208
         w: 3593913156
-    m_SectionId: 364305256
-  m_BlobAsset: {fileID: 606040076674693619, guid: 1756cc8abced59747a0fca7ecece9eb7, type: 3}
+    m_SectionId: 824480333
+  m_BlobAsset: {fileID: 11400000, guid: 9d1c41b7f94aa734f90454d6254ff343, type: 2}
 --- !u!1 &250760812
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,73 +476,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 250760812}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &257982092
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 257982093}
-  - component: {fileID: 257982095}
-  - component: {fileID: 257982094}
-  m_Layer: 0
-  m_Name: Section_824480360 (-2, 0, 2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &257982093
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 257982092}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -383.51, y: 9.95, z: 555.6262}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1525063452}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &257982094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 257982092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
-  SectionIndex: 824480360
---- !u!114 &257982095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 257982092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
-  m_Address:
-    m_SceneGuid:
-      Value:
-        x: 656876763
-        y: 1335588788
-        z: 2997324208
-        w: 3593913156
-    m_SectionId: 824480360
-  m_BlobAsset: {fileID: 606040076674693619, guid: b31f521f21034a0458d89bf4400a2d59, type: 3}
 --- !u!64 &321796826
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -498,6 +498,207 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7085234261289341634, guid: 57aa70f76bbc9b2449b73a761ecbb286, type: 3}
+--- !u!1 &400279940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400279941}
+  - component: {fileID: 400279943}
+  - component: {fileID: 400279942}
+  m_Layer: 0
+  m_Name: Section_824480361
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400279941
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400279940}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -127.51, y: 9.95, z: 555.6262}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1525063452}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &400279942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400279940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
+  SectionIndex: 824480361
+--- !u!114 &400279943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400279940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
+  m_Address:
+    m_SceneGuid:
+      Value:
+        x: 656876763
+        y: 1335588788
+        z: 2997324208
+        w: 3593913156
+    m_SectionId: 824480361
+  m_BlobAsset: {fileID: 11400000, guid: 064778adc06490d4c91c864c8922ca25, type: 2}
+--- !u!1 &446095260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 446095261}
+  - component: {fileID: 446095263}
+  - component: {fileID: 446095262}
+  m_Layer: 0
+  m_Name: Section_479349028
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &446095261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446095260}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 128.49, y: 9.95, z: -109.48125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1525063452}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &446095262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446095260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
+  SectionIndex: 479349028
+--- !u!114 &446095263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446095260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
+  m_Address:
+    m_SceneGuid:
+      Value:
+        x: 656876763
+        y: 1335588788
+        z: 2997324208
+        w: 3593913156
+    m_SectionId: 479349028
+  m_BlobAsset: {fileID: 11400000, guid: f7d9ea444bc9b764e9189dedc2312e0f, type: 2}
+--- !u!1 &447108986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 447108987}
+  - component: {fileID: 447108989}
+  - component: {fileID: 447108988}
+  m_Layer: 0
+  m_Name: Section_824480329
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &447108987
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447108986}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -127.51, y: 9.95, z: 112.22125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1525063452}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &447108988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447108986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
+  SectionIndex: 824480329
+--- !u!114 &447108989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447108986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
+  m_Address:
+    m_SceneGuid:
+      Value:
+        x: 656876763
+        y: 1335588788
+        z: 2997324208
+        w: 3593913156
+    m_SectionId: 824480329
+  m_BlobAsset: {fileID: 11400000, guid: d1ea7ab77f32e774e81bc2f241fafda6, type: 2}
 --- !u!64 &509407555
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -520,341 +721,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4402953309584928302, guid: af78f1b17e3d5a646b19ac5c8acc179e, type: 3}
---- !u!1 &511859000
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 511859001}
-  - component: {fileID: 511859003}
-  - component: {fileID: 511859002}
-  m_Layer: 0
-  m_Name: Section_939524129 (1, 0, 2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &511859001
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 511859000}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 384.49, y: 9.95, z: 555.6262}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1525063452}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &511859002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 511859000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
-  SectionIndex: 939524129
---- !u!114 &511859003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 511859000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
-  m_Address:
-    m_SceneGuid:
-      Value:
-        x: 656876763
-        y: 1335588788
-        z: 2997324208
-        w: 3593913156
-    m_SectionId: 939524129
-  m_BlobAsset: {fileID: 606040076674693619, guid: 7b0827c35bf6a5640bd63ff421a4c48b, type: 3}
---- !u!1 &606386656
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 606386657}
-  - component: {fileID: 606386659}
-  - component: {fileID: 606386658}
-  m_Layer: 0
-  m_Name: Section_824480329 (-1, 0, 0)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &606386657
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 606386656}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -127.51, y: 9.95, z: 112.22125}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1525063452}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &606386658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 606386656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
-  SectionIndex: 824480329
---- !u!114 &606386659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 606386656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
-  m_Address:
-    m_SceneGuid:
-      Value:
-        x: 656876763
-        y: 1335588788
-        z: 2997324208
-        w: 3593913156
-    m_SectionId: 824480329
-  m_BlobAsset: {fileID: 606040076674693619, guid: e2004457888c1c44d9cff572c8de9669, type: 3}
---- !u!1 &613974470
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 613974471}
-  - component: {fileID: 613974473}
-  - component: {fileID: 613974472}
-  m_Layer: 0
-  m_Name: Section_939524097 (1, 0, 0)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &613974471
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613974470}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 384.49, y: 9.95, z: 112.22125}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1525063452}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &613974472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613974470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
-  SectionIndex: 939524097
---- !u!114 &613974473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613974470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
-  m_Address:
-    m_SceneGuid:
-      Value:
-        x: 656876763
-        y: 1335588788
-        z: 2997324208
-        w: 3593913156
-    m_SectionId: 939524097
-  m_BlobAsset: {fileID: 606040076674693619, guid: a04497bc1ca6e2d4fa4eec7320449d4f, type: 3}
---- !u!1 &675035126
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 675035127}
-  - component: {fileID: 675035129}
-  - component: {fileID: 675035128}
-  m_Layer: 0
-  m_Name: Section_824480328 (-2, 0, 0)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &675035127
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675035126}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -383.51, y: 9.95, z: 112.22125}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1525063452}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &675035128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675035126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
-  SectionIndex: 824480328
---- !u!114 &675035129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675035126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
-  m_Address:
-    m_SceneGuid:
-      Value:
-        x: 656876763
-        y: 1335588788
-        z: 2997324208
-        w: 3593913156
-    m_SectionId: 824480328
-  m_BlobAsset: {fileID: 606040076674693619, guid: 48ae380a77cdebb46b320d3d3047ccc9, type: 3}
---- !u!1 &685721212
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 685721213}
-  - component: {fileID: 685721215}
-  - component: {fileID: 685721214}
-  m_Layer: 0
-  m_Name: Section_939524100 (0, 0, 1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &685721213
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 685721212}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 128.49, y: 9.95, z: 333.92374}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1525063452}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &685721214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 685721212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
-  SectionIndex: 939524100
---- !u!114 &685721215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 685721212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
-  m_Address:
-    m_SceneGuid:
-      Value:
-        x: 656876763
-        y: 1335588788
-        z: 2997324208
-        w: 3593913156
-    m_SectionId: 939524100
-  m_BlobAsset: {fileID: 606040076674693619, guid: f6d52e567ed9a6e4a9ec0ea44dd910b2, type: 3}
 --- !u!64 &727822380
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -877,7 +743,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1368123653909500122, guid: a702fa5c791eaa74b8adabb7810c78d4, type: 3}
---- !u!1 &746614341
+--- !u!1 &772798316
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -885,23 +751,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 746614342}
-  - component: {fileID: 746614344}
-  - component: {fileID: 746614343}
+  - component: {fileID: 772798317}
+  - component: {fileID: 772798319}
+  - component: {fileID: 772798318}
   m_Layer: 0
-  m_Name: Section_364305229 (-1, 0, -3)
+  m_Name: Section_364305229
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &746614342
+--- !u!4 &772798317
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746614341}
+  m_GameObject: {fileID: 772798316}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -127.51, y: 9.95, z: -552.8862}
@@ -910,26 +776,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1525063452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &746614343
+--- !u!114 &772798318
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746614341}
+  m_GameObject: {fileID: 772798316}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
   SectionIndex: 364305229
---- !u!114 &746614344
+--- !u!114 &772798319
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746614341}
+  m_GameObject: {fileID: 772798316}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
@@ -943,7 +809,7 @@ MonoBehaviour:
         z: 2997324208
         w: 3593913156
     m_SectionId: 364305229
-  m_BlobAsset: {fileID: 606040076674693619, guid: 6a5588b68c0306e4a8d280140eae1783, type: 3}
+  m_BlobAsset: {fileID: 11400000, guid: 6b44f8f365dc0b0439fdc79b99183a54, type: 2}
 --- !u!64 &794709670
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1011,7 +877,7 @@ GameObject:
   - component: {fileID: 820734650}
   - component: {fileID: 820734651}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: CameraAuthoring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1045,7 +911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: BovineLabs.Core.Extensions.Authoring::BovineLabs.Core.Authoring.Camera.CameraAuthoring
   isMainCamera: 1
---- !u!1 &844401951
+--- !u!1 &849565235
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1053,51 +919,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 844401952}
-  - component: {fileID: 844401954}
-  - component: {fileID: 844401953}
+  - component: {fileID: 849565236}
+  - component: {fileID: 849565238}
+  - component: {fileID: 849565237}
   m_Layer: 0
-  m_Name: Section_479348997 (1, 0, -3)
+  m_Name: Section_479349025
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &844401952
+--- !u!4 &849565236
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844401951}
+  m_GameObject: {fileID: 849565235}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 384.49, y: 9.95, z: -552.8862}
+  m_LocalPosition: {x: 384.49, y: 9.95, z: -331.18375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1525063452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &844401953
+--- !u!114 &849565237
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844401951}
+  m_GameObject: {fileID: 849565235}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
-  SectionIndex: 479348997
---- !u!114 &844401954
+  SectionIndex: 479349025
+--- !u!114 &849565238
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844401951}
+  m_GameObject: {fileID: 849565235}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
@@ -1110,8 +976,8 @@ MonoBehaviour:
         y: 1335588788
         z: 2997324208
         w: 3593913156
-    m_SectionId: 479348997
-  m_BlobAsset: {fileID: 606040076674693619, guid: d287cf955053f8f4e8fa7eaa0a008999, type: 3}
+    m_SectionId: 479349025
+  m_BlobAsset: {fileID: 11400000, guid: 645766511656f80428f16d1c9534dd5e, type: 2}
 --- !u!64 &859561184
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1247,7 +1113,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899061340}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &910468085
+--- !u!1 &990330314
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1255,51 +1121,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 910468086}
-  - component: {fileID: 910468088}
-  - component: {fileID: 910468087}
+  - component: {fileID: 990330315}
+  - component: {fileID: 990330317}
+  - component: {fileID: 990330316}
   m_Layer: 0
-  m_Name: Section_479349025 (1, 0, -2)
+  m_Name: Section_364305228
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &910468086
+--- !u!4 &990330315
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 910468085}
+  m_GameObject: {fileID: 990330314}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 384.49, y: 9.95, z: -331.18375}
+  m_LocalPosition: {x: -383.51, y: 9.95, z: -552.8862}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1525063452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &910468087
+--- !u!114 &990330316
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 910468085}
+  m_GameObject: {fileID: 990330314}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
-  SectionIndex: 479349025
---- !u!114 &910468088
+  SectionIndex: 364305228
+--- !u!114 &990330317
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 910468085}
+  m_GameObject: {fileID: 990330314}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
@@ -1312,9 +1178,9 @@ MonoBehaviour:
         y: 1335588788
         z: 2997324208
         w: 3593913156
-    m_SectionId: 479349025
-  m_BlobAsset: {fileID: 606040076674693619, guid: f7089c561b232094e87f2f7a00570f12, type: 3}
---- !u!1 &934209369
+    m_SectionId: 364305228
+  m_BlobAsset: {fileID: 11400000, guid: bf220f2cf5334af45a0f25a765a5f40f, type: 2}
+--- !u!1 &1009374442
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1322,51 +1188,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 934209370}
-  - component: {fileID: 934209372}
-  - component: {fileID: 934209371}
+  - component: {fileID: 1009374443}
+  - component: {fileID: 1009374445}
+  - component: {fileID: 1009374444}
   m_Layer: 0
-  m_Name: Section_479349028 (0, 0, -1)
+  m_Name: Section_939524097
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &934209370
+--- !u!4 &1009374443
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 934209369}
+  m_GameObject: {fileID: 1009374442}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 128.49, y: 9.95, z: -109.48125}
+  m_LocalPosition: {x: 384.49, y: 9.95, z: 112.22125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1525063452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &934209371
+--- !u!114 &1009374444
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 934209369}
+  m_GameObject: {fileID: 1009374442}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
-  SectionIndex: 479349028
---- !u!114 &934209372
+  SectionIndex: 939524097
+--- !u!114 &1009374445
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 934209369}
+  m_GameObject: {fileID: 1009374442}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
@@ -1379,8 +1245,8 @@ MonoBehaviour:
         y: 1335588788
         z: 2997324208
         w: 3593913156
-    m_SectionId: 479349028
-  m_BlobAsset: {fileID: 606040076674693619, guid: 20502d8367ff4354d9187c8e71524eda, type: 3}
+    m_SectionId: 939524097
+  m_BlobAsset: {fileID: 11400000, guid: 39cee81901cfc2f479435f90f5540a07, type: 2}
 --- !u!64 &1122941613
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1403,73 +1269,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4375651929690940101, guid: 71e6a6b6f62883549825e73a2ae6dc46, type: 3}
---- !u!1 &1142127350
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1142127351}
-  - component: {fileID: 1142127353}
-  - component: {fileID: 1142127352}
-  m_Layer: 0
-  m_Name: Section_939524128 (0, 0, 2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1142127351
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142127350}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 128.49, y: 9.95, z: 555.6262}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1525063452}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1142127352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142127350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
-  SectionIndex: 939524128
---- !u!114 &1142127353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142127350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
-  m_Address:
-    m_SceneGuid:
-      Value:
-        x: 656876763
-        y: 1335588788
-        z: 2997324208
-        w: 3593913156
-    m_SectionId: 939524128
-  m_BlobAsset: {fileID: 606040076674693619, guid: a9df7ec8beedddd468ca302f6deeca0d, type: 3}
 --- !u!1 &1145410056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1573,6 +1372,140 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3257378690385720486, guid: 5abba8dc21f730a48bd010f01c3eeddc, type: 3}
+--- !u!1 &1256038310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1256038311}
+  - component: {fileID: 1256038313}
+  - component: {fileID: 1256038312}
+  m_Layer: 0
+  m_Name: Section_479348997
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1256038311
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256038310}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 384.49, y: 9.95, z: -552.8862}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1525063452}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1256038312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256038310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
+  SectionIndex: 479348997
+--- !u!114 &1256038313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256038310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
+  m_Address:
+    m_SceneGuid:
+      Value:
+        x: 656876763
+        y: 1335588788
+        z: 2997324208
+        w: 3593913156
+    m_SectionId: 479348997
+  m_BlobAsset: {fileID: 11400000, guid: 0e5d7d99aab22a94293d444400a6442d, type: 2}
+--- !u!1 &1268960122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1268960123}
+  - component: {fileID: 1268960125}
+  - component: {fileID: 1268960124}
+  m_Layer: 0
+  m_Name: Section_939524096
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1268960123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268960122}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 128.49, y: 9.95, z: 112.22125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1525063452}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1268960124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268960122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
+  SectionIndex: 939524096
+--- !u!114 &1268960125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268960122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
+  m_Address:
+    m_SceneGuid:
+      Value:
+        x: 656876763
+        y: 1335588788
+        z: 2997324208
+        w: 3593913156
+    m_SectionId: 939524096
+  m_BlobAsset: {fileID: 11400000, guid: 0abe3d224a5fe3148bb45be979807bd2, type: 2}
 --- !u!64 &1297181499
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1595,7 +1528,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4375651929690940101, guid: 71e6a6b6f62883549825e73a2ae6dc46, type: 3}
---- !u!1 &1367273652
+--- !u!1 &1310790512
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1603,51 +1536,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1367273653}
-  - component: {fileID: 1367273655}
-  - component: {fileID: 1367273654}
+  - component: {fileID: 1310790513}
+  - component: {fileID: 1310790515}
+  - component: {fileID: 1310790514}
   m_Layer: 0
-  m_Name: Section_939524101 (1, 0, 1)
+  m_Name: Section_364305261
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1367273653
+--- !u!4 &1310790513
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1367273652}
+  m_GameObject: {fileID: 1310790512}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 384.49, y: 9.95, z: 333.92374}
+  m_LocalPosition: {x: -127.51, y: 9.95, z: -109.48125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1525063452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1367273654
+--- !u!114 &1310790514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1367273652}
+  m_GameObject: {fileID: 1310790512}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
-  SectionIndex: 939524101
---- !u!114 &1367273655
+  SectionIndex: 364305261
+--- !u!114 &1310790515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1367273652}
+  m_GameObject: {fileID: 1310790512}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
@@ -1660,8 +1593,209 @@ MonoBehaviour:
         y: 1335588788
         z: 2997324208
         w: 3593913156
-    m_SectionId: 939524101
-  m_BlobAsset: {fileID: 606040076674693619, guid: aeb80abad49360347abb6589c665645e, type: 3}
+    m_SectionId: 364305261
+  m_BlobAsset: {fileID: 11400000, guid: 8b021dcf8ec6ef640aefe1a09d2bf082, type: 2}
+--- !u!1 &1314256736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1314256737}
+  - component: {fileID: 1314256739}
+  - component: {fileID: 1314256738}
+  m_Layer: 0
+  m_Name: Section_939524129
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1314256737
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314256736}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 384.49, y: 9.95, z: 555.6262}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1525063452}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1314256738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314256736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
+  SectionIndex: 939524129
+--- !u!114 &1314256739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314256736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
+  m_Address:
+    m_SceneGuid:
+      Value:
+        x: 656876763
+        y: 1335588788
+        z: 2997324208
+        w: 3593913156
+    m_SectionId: 939524129
+  m_BlobAsset: {fileID: 11400000, guid: 7c945be40047f7c4fb7d94726d114dc8, type: 2}
+--- !u!1 &1355480053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1355480054}
+  - component: {fileID: 1355480056}
+  - component: {fileID: 1355480055}
+  m_Layer: 0
+  m_Name: Section_364305257
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1355480054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355480053}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -127.51, y: 9.95, z: -331.18375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1525063452}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1355480055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355480053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
+  SectionIndex: 364305257
+--- !u!114 &1355480056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355480053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
+  m_Address:
+    m_SceneGuid:
+      Value:
+        x: 656876763
+        y: 1335588788
+        z: 2997324208
+        w: 3593913156
+    m_SectionId: 364305257
+  m_BlobAsset: {fileID: 11400000, guid: f2dbeb87e4f488f4588a4e44cfcfa3bb, type: 2}
+--- !u!1 &1408775016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1408775017}
+  - component: {fileID: 1408775019}
+  - component: {fileID: 1408775018}
+  m_Layer: 0
+  m_Name: Section_824480332
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1408775017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408775016}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -383.51, y: 9.95, z: 333.92374}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1525063452}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1408775018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408775016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
+  SectionIndex: 824480332
+--- !u!114 &1408775019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408775016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
+  m_Address:
+    m_SceneGuid:
+      Value:
+        x: 656876763
+        y: 1335588788
+        z: 2997324208
+        w: 3593913156
+    m_SectionId: 824480332
+  m_BlobAsset: {fileID: 11400000, guid: ef65975259c866c4585c65a02c7c63fd, type: 2}
 --- !u!1 &1463684904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,30 +1864,30 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1914829716}
-  - {fileID: 746614342}
-  - {fileID: 236897678}
-  - {fileID: 2104292156}
-  - {fileID: 1799796538}
-  - {fileID: 1640529566}
-  - {fileID: 1912610852}
-  - {fileID: 844401952}
-  - {fileID: 2140057933}
-  - {fileID: 910468086}
-  - {fileID: 934209370}
-  - {fileID: 1974928407}
-  - {fileID: 675035127}
-  - {fileID: 606386657}
-  - {fileID: 145317472}
-  - {fileID: 1872119832}
-  - {fileID: 257982093}
-  - {fileID: 1574842350}
-  - {fileID: 2063833962}
-  - {fileID: 613974471}
-  - {fileID: 685721213}
-  - {fileID: 1367273653}
-  - {fileID: 1142127351}
-  - {fileID: 511859001}
+  - {fileID: 990330315}
+  - {fileID: 772798317}
+  - {fileID: 1760805778}
+  - {fileID: 1355480054}
+  - {fileID: 1993108006}
+  - {fileID: 1310790513}
+  - {fileID: 1721488223}
+  - {fileID: 1256038311}
+  - {fileID: 2088273333}
+  - {fileID: 849565236}
+  - {fileID: 446095261}
+  - {fileID: 149413532}
+  - {fileID: 1616234500}
+  - {fileID: 447108987}
+  - {fileID: 1408775017}
+  - {fileID: 249352403}
+  - {fileID: 2082526521}
+  - {fileID: 400279941}
+  - {fileID: 1268960123}
+  - {fileID: 1009374443}
+  - {fileID: 1571210954}
+  - {fileID: 2085887541}
+  - {fileID: 136309874}
+  - {fileID: 1314256737}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1525063453
@@ -1790,7 +1924,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2365451705195232305, guid: f0badc33d6c5d4f478ca5ac6df461758, type: 3}
---- !u!1 &1574842349
+--- !u!1 &1571210953
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1798,51 +1932,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1574842350}
-  - component: {fileID: 1574842352}
-  - component: {fileID: 1574842351}
+  - component: {fileID: 1571210954}
+  - component: {fileID: 1571210956}
+  - component: {fileID: 1571210955}
   m_Layer: 0
-  m_Name: Section_824480361 (-1, 0, 2)
+  m_Name: Section_939524100
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1574842350
+--- !u!4 &1571210954
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1574842349}
+  m_GameObject: {fileID: 1571210953}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -127.51, y: 9.95, z: 555.6262}
+  m_LocalPosition: {x: 128.49, y: 9.95, z: 333.92374}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1525063452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1574842351
+--- !u!114 &1571210955
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1574842349}
+  m_GameObject: {fileID: 1571210953}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
-  SectionIndex: 824480361
---- !u!114 &1574842352
+  SectionIndex: 939524100
+--- !u!114 &1571210956
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1574842349}
+  m_GameObject: {fileID: 1571210953}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
@@ -1855,9 +1989,9 @@ MonoBehaviour:
         y: 1335588788
         z: 2997324208
         w: 3593913156
-    m_SectionId: 824480361
-  m_BlobAsset: {fileID: 606040076674693619, guid: f67b3cdab4d42894f81ea0eade89c6e9, type: 3}
---- !u!1 &1640529565
+    m_SectionId: 939524100
+  m_BlobAsset: {fileID: 11400000, guid: 7c6e85ccd9d3a984e8b4550c253828b8, type: 2}
+--- !u!1 &1616234499
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1865,51 +1999,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1640529566}
-  - component: {fileID: 1640529568}
-  - component: {fileID: 1640529567}
+  - component: {fileID: 1616234500}
+  - component: {fileID: 1616234502}
+  - component: {fileID: 1616234501}
   m_Layer: 0
-  m_Name: Section_364305261 (-1, 0, -1)
+  m_Name: Section_824480328
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1640529566
+--- !u!4 &1616234500
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640529565}
+  m_GameObject: {fileID: 1616234499}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -127.51, y: 9.95, z: -109.48125}
+  m_LocalPosition: {x: -383.51, y: 9.95, z: 112.22125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1525063452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1640529567
+--- !u!114 &1616234501
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640529565}
+  m_GameObject: {fileID: 1616234499}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
-  SectionIndex: 364305261
---- !u!114 &1640529568
+  SectionIndex: 824480328
+--- !u!114 &1616234502
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640529565}
+  m_GameObject: {fileID: 1616234499}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
@@ -1922,8 +2056,142 @@ MonoBehaviour:
         y: 1335588788
         z: 2997324208
         w: 3593913156
-    m_SectionId: 364305261
-  m_BlobAsset: {fileID: 606040076674693619, guid: cb30df5c12c05d14c8fd134ee09064dc, type: 3}
+    m_SectionId: 824480328
+  m_BlobAsset: {fileID: 11400000, guid: 781b8f94705edc74aa509c4dd46d361b, type: 2}
+--- !u!1 &1721488222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1721488223}
+  - component: {fileID: 1721488225}
+  - component: {fileID: 1721488224}
+  m_Layer: 0
+  m_Name: Section_479348996
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1721488223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721488222}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 128.49, y: 9.95, z: -552.8862}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1525063452}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1721488224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721488222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
+  SectionIndex: 479348996
+--- !u!114 &1721488225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721488222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
+  m_Address:
+    m_SceneGuid:
+      Value:
+        x: 656876763
+        y: 1335588788
+        z: 2997324208
+        w: 3593913156
+    m_SectionId: 479348996
+  m_BlobAsset: {fileID: 11400000, guid: f3a5299e4c586a84dbbe62b6d2600a36, type: 2}
+--- !u!1 &1760805777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1760805778}
+  - component: {fileID: 1760805780}
+  - component: {fileID: 1760805779}
+  m_Layer: 0
+  m_Name: Section_364305256
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1760805778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760805777}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -383.51, y: 9.95, z: -331.18375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1525063452}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1760805779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760805777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
+  SectionIndex: 364305256
+--- !u!114 &1760805780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760805777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
+  m_Address:
+    m_SceneGuid:
+      Value:
+        x: 656876763
+        y: 1335588788
+        z: 2997324208
+        w: 3593913156
+    m_SectionId: 364305256
+  m_BlobAsset: {fileID: 11400000, guid: c63616935d711884993e8e267f0b2a48, type: 2}
 --- !u!1 &1792352871
 GameObject:
   m_ObjectHideFlags: 0
@@ -2037,7 +2305,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1153811601}
   m_LocalEulerAnglesHint: {x: 0, y: 0.069, z: 0}
---- !u!1 &1799796537
+--- !u!1 &1993108005
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2045,23 +2313,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1799796538}
-  - component: {fileID: 1799796540}
-  - component: {fileID: 1799796539}
+  - component: {fileID: 1993108006}
+  - component: {fileID: 1993108008}
+  - component: {fileID: 1993108007}
   m_Layer: 0
-  m_Name: Section_364305260 (-2, 0, -1)
+  m_Name: Section_364305260
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1799796538
+--- !u!4 &1993108006
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799796537}
+  m_GameObject: {fileID: 1993108005}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -383.51, y: 9.95, z: -109.48125}
@@ -2070,26 +2338,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1525063452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1799796539
+--- !u!114 &1993108007
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799796537}
+  m_GameObject: {fileID: 1993108005}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
   SectionIndex: 364305260
---- !u!114 &1799796540
+--- !u!114 &1993108008
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799796537}
+  m_GameObject: {fileID: 1993108005}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
@@ -2103,275 +2371,7 @@ MonoBehaviour:
         z: 2997324208
         w: 3593913156
     m_SectionId: 364305260
-  m_BlobAsset: {fileID: 606040076674693619, guid: d243ef66453e70f4fa2c06b4d102e2ad, type: 3}
---- !u!1 &1872119831
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1872119832}
-  - component: {fileID: 1872119834}
-  - component: {fileID: 1872119833}
-  m_Layer: 0
-  m_Name: Section_824480333 (-1, 0, 1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1872119832
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1872119831}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -127.51, y: 9.95, z: 333.92374}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1525063452}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1872119833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1872119831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
-  SectionIndex: 824480333
---- !u!114 &1872119834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1872119831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
-  m_Address:
-    m_SceneGuid:
-      Value:
-        x: 656876763
-        y: 1335588788
-        z: 2997324208
-        w: 3593913156
-    m_SectionId: 824480333
-  m_BlobAsset: {fileID: 606040076674693619, guid: 2cc8603f7f3b1b947ad46d5c8c99c537, type: 3}
---- !u!1 &1912610851
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1912610852}
-  - component: {fileID: 1912610854}
-  - component: {fileID: 1912610853}
-  m_Layer: 0
-  m_Name: Section_479348996 (0, 0, -3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1912610852
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912610851}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 128.49, y: 9.95, z: -552.8862}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1525063452}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1912610853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912610851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
-  SectionIndex: 479348996
---- !u!114 &1912610854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912610851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
-  m_Address:
-    m_SceneGuid:
-      Value:
-        x: 656876763
-        y: 1335588788
-        z: 2997324208
-        w: 3593913156
-    m_SectionId: 479348996
-  m_BlobAsset: {fileID: 606040076674693619, guid: cfe861e1d1ab60046bec0659d483a60a, type: 3}
---- !u!1 &1914829715
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1914829716}
-  - component: {fileID: 1914829718}
-  - component: {fileID: 1914829717}
-  m_Layer: 0
-  m_Name: Section_364305228 (-2, 0, -3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1914829716
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914829715}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -383.51, y: 9.95, z: -552.8862}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1525063452}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1914829717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914829715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
-  SectionIndex: 364305228
---- !u!114 &1914829718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914829715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
-  m_Address:
-    m_SceneGuid:
-      Value:
-        x: 656876763
-        y: 1335588788
-        z: 2997324208
-        w: 3593913156
-    m_SectionId: 364305228
-  m_BlobAsset: {fileID: 606040076674693619, guid: c75f9c1e9c3591d4dbccb7723a3d0878, type: 3}
---- !u!1 &1974928406
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1974928407}
-  - component: {fileID: 1974928409}
-  - component: {fileID: 1974928408}
-  m_Layer: 0
-  m_Name: Section_479349029 (1, 0, -1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1974928407
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974928406}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 384.49, y: 9.95, z: -109.48125}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1525063452}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1974928408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974928406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
-  SectionIndex: 479349029
---- !u!114 &1974928409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974928406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
-  m_Address:
-    m_SceneGuid:
-      Value:
-        x: 656876763
-        y: 1335588788
-        z: 2997324208
-        w: 3593913156
-    m_SectionId: 479349029
-  m_BlobAsset: {fileID: 606040076674693619, guid: 07be1995701c0874e8f323ffc8328ba6, type: 3}
+  m_BlobAsset: {fileID: 11400000, guid: b78aff1a5c3d98a4092eec8f7a2f3363, type: 2}
 --- !u!64 &2033694454
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2620,73 +2620,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060200994}
   m_Mesh: {fileID: 4300000, guid: 7ef5ff00f414859499bf70d8377f16ef, type: 3}
---- !u!1 &2063833961
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2063833962}
-  - component: {fileID: 2063833964}
-  - component: {fileID: 2063833963}
-  m_Layer: 0
-  m_Name: Section_939524096 (0, 0, 0)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2063833962
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063833961}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 128.49, y: 9.95, z: 112.22125}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1525063452}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2063833963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063833961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
-  SectionIndex: 939524096
---- !u!114 &2063833964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063833961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
-  m_Address:
-    m_SceneGuid:
-      Value:
-        x: 656876763
-        y: 1335588788
-        z: 2997324208
-        w: 3593913156
-    m_SectionId: 939524096
-  m_BlobAsset: {fileID: 606040076674693619, guid: 8e9dd790c3f67fe42888099f5e391f01, type: 3}
 --- !u!64 &2075187655
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2709,6 +2642,73 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8961822182309521800, guid: ff37a8634ad2e404c9a198bba192a972, type: 3}
+--- !u!1 &2082526520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2082526521}
+  - component: {fileID: 2082526523}
+  - component: {fileID: 2082526522}
+  m_Layer: 0
+  m_Name: Section_824480360
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2082526521
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082526520}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -383.51, y: 9.95, z: 555.6262}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1525063452}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2082526522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082526520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
+  SectionIndex: 824480360
+--- !u!114 &2082526523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082526520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DotsNetworking.SceneGraph::DotsNetworking.SceneGraph.Authoring.SectionAuthoring
+  m_Address:
+    m_SceneGuid:
+      Value:
+        x: 656876763
+        y: 1335588788
+        z: 2997324208
+        w: 3593913156
+    m_SectionId: 824480360
+  m_BlobAsset: {fileID: 11400000, guid: d61cda96b405a284e948029961463c03, type: 2}
 --- !u!64 &2084999340
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2774,7 +2774,7 @@ Transform:
   - {fileID: 543450652998552003}
   m_Father: {fileID: 1463684905}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2104292155
+--- !u!1 &2085887540
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2782,51 +2782,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2104292156}
-  - component: {fileID: 2104292158}
-  - component: {fileID: 2104292157}
+  - component: {fileID: 2085887541}
+  - component: {fileID: 2085887543}
+  - component: {fileID: 2085887542}
   m_Layer: 0
-  m_Name: Section_364305257 (-1, 0, -2)
+  m_Name: Section_939524101
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2104292156
+--- !u!4 &2085887541
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2104292155}
+  m_GameObject: {fileID: 2085887540}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -127.51, y: 9.95, z: -331.18375}
+  m_LocalPosition: {x: 384.49, y: 9.95, z: 333.92374}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1525063452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2104292157
+--- !u!114 &2085887542
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2104292155}
+  m_GameObject: {fileID: 2085887540}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
-  SectionIndex: 364305257
---- !u!114 &2104292158
+  SectionIndex: 939524101
+--- !u!114 &2085887543
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2104292155}
+  m_GameObject: {fileID: 2085887540}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
@@ -2839,9 +2839,9 @@ MonoBehaviour:
         y: 1335588788
         z: 2997324208
         w: 3593913156
-    m_SectionId: 364305257
-  m_BlobAsset: {fileID: 606040076674693619, guid: 17427edbc323d50438a503b3503ea3ac, type: 3}
---- !u!1 &2140057932
+    m_SectionId: 939524101
+  m_BlobAsset: {fileID: 11400000, guid: d34319df274f87d419e0ee5328f92c36, type: 2}
+--- !u!1 &2088273332
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2849,23 +2849,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2140057933}
-  - component: {fileID: 2140057935}
-  - component: {fileID: 2140057934}
+  - component: {fileID: 2088273333}
+  - component: {fileID: 2088273335}
+  - component: {fileID: 2088273334}
   m_Layer: 0
-  m_Name: Section_479349024 (0, 0, -2)
+  m_Name: Section_479349024
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2140057933
+--- !u!4 &2088273333
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2140057932}
+  m_GameObject: {fileID: 2088273332}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 128.49, y: 9.95, z: -331.18375}
@@ -2874,26 +2874,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1525063452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2140057934
+--- !u!114 &2088273334
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2140057932}
+  m_GameObject: {fileID: 2088273332}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c5b58f8d31375342a221ed113e71008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.SceneSectionComponent
   SectionIndex: 479349024
---- !u!114 &2140057935
+--- !u!114 &2088273335
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2140057932}
+  m_GameObject: {fileID: 2088273332}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d7019c7cf41644b93f78ad01761747, type: 3}
@@ -2907,7 +2907,7 @@ MonoBehaviour:
         z: 2997324208
         w: 3593913156
     m_SectionId: 479349024
-  m_BlobAsset: {fileID: 606040076674693619, guid: 66292b0f0c1bee84385d1458a6c30ae0, type: 3}
+  m_BlobAsset: {fileID: 11400000, guid: 1fd51aebe9e44b340872e1f215630fc4, type: 2}
 --- !u!4 &543450651642495159
 Transform:
   m_ObjectHideFlags: 0
@@ -6769,7 +6769,7 @@ MeshFilter:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 820734650}
   - {fileID: 1525063452}
   - {fileID: 5894097959472483510}
   - {fileID: 818518902}
-  - {fileID: 820734650}

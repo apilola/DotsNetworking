@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Unity.Mathematics;
 using DotsNetworking.SceneGraph.Utils;
-using DotsNetworking.SceneGraph;
 using UnityEditorInternal;
 using Unity.Collections;
 using Unity.Jobs;
@@ -17,6 +16,7 @@ using Unity.Collections.LowLevel.Unsafe;
 using System.Reflection;
 using UnityEngine.Profiling;
 using EntitiesHash128 = Unity.Entities.Hash128;
+using DotsNetworking.SceneGraph.Components;
 
 namespace DotsNetworking.SceneGraph.Editor
 {
@@ -34,7 +34,7 @@ namespace DotsNetworking.SceneGraph.Editor
         private static Dictionary<ChunkAddress, EditorChunkData> _chunksCache = new Dictionary<ChunkAddress, EditorChunkData>();
         
         // Blob Cache - keyed by scene+section
-        private static Dictionary<SectionAddress, BlobAssetHandle<Section>> _loadedHandles = new Dictionary<SectionAddress, BlobAssetHandle<Section>>();
+        private static Dictionary<SectionAddress, BlobAssetHandler> _loadedBlobs = new Dictionary<SectionAddress, BlobAssetHandler>();
 
         // Hover State
         private static ChunkAddress _lastHoveredAddress;
@@ -133,8 +133,8 @@ namespace DotsNetworking.SceneGraph.Editor
             _hasHoverSceneGuid = false;
             
             // Clear Blob Cache
-            foreach (var kvp in _loadedHandles) NavigationAssetProvider.Release(kvp.Key);
-            _loadedHandles.Clear();
+            foreach (var kvp in _loadedBlobs) NavigationAssetProvider.Release(kvp.Key);
+            _loadedBlobs.Clear();
         }
 
         // --- Lifecycle & Drawing ---
@@ -453,24 +453,18 @@ namespace DotsNetworking.SceneGraph.Editor
                 uint sectionIndex = SceneGraphMath.PackSectionId(section);
                 var sectionAddress = new SectionAddress(sceneGuid, sectionIndex);
                 
-                if (!_loadedHandles.ContainsKey(sectionAddress))
+                if (!_loadedBlobs.TryGetValue(sectionAddress, out var handler))
                 {
-                    var handle = NavigationAssetProvider.CheckOut(sectionAddress);
-                    if (handle.IsValid)
-                    {
-                        _loadedHandles[sectionAddress] = handle;
-                    }
+                    handler = NavigationAssetProvider.CheckOut(sectionAddress);
+                    if (handler == null || !handler.IsCreated)
+                        return false;
+
+                    _loadedBlobs[sectionAddress] = handler;
                 }
 
-                if (_loadedHandles.TryGetValue(sectionAddress, out var rHandle))
+                if (handler != null && handler.IsCreated)
                 {
-                    if (!rHandle.IsValid)
-                    {
-                        _loadedHandles.Remove(sectionAddress);
-                        return false;
-                    }
-
-                    ref Section r = ref rHandle.Blob.Value;
+                    ref Section r = ref handler.Value;
                     ushort morton = SceneGraphMath.EncodeChunkToMorton(chunk);
                 
                     // Check Bounds
@@ -492,6 +486,11 @@ namespace DotsNetworking.SceneGraph.Editor
                              return true;
                          }
                     }
+                }
+                else if (handler != null)
+                {
+                    _loadedBlobs.Remove(sectionAddress);
+                    NavigationAssetProvider.Release(sectionAddress);
                 }
                 return false;
             }

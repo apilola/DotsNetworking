@@ -7,7 +7,9 @@
         "Unity.Burst",
         "Unity.Mathematics",
         "BovineLabs.Core",
-        "Unity.Entities.Hybrid"
+        "BovineLabs.Core.Extensions",
+        "Unity.Entities.Hybrid",
+        "Unity.Mathematics.Extensions"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

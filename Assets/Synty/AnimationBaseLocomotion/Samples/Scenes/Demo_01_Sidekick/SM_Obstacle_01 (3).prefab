@@ -302,6 +302,11 @@ MonoBehaviour:
     PrefabType: 3
     SendTypeOptimization: -1
     VariantHash: 0
+  - FullTypeName: Unity.Transforms.LocalTransform
+    EntityIndex: 0
+    PrefabType: 3
+    SendTypeOptimization: -1
+    VariantHash: 10188360468653526834
 --- !u!114 &1916617453594335616
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -90,11 +90,10 @@ Node
 
 **Morton.cs** - Low-level spatial encoding (2D/3D, 32/64-bit variants)
 
-**TextAssetBlobPipeline.cs** - Async blob loading:
-- Loads TextAssets via ResourceRequest
-- Reflection-based `BlobAssetReference<T>.TryReadInplace()`
-- `BlobAssetHandle<T>`: borrowed handle reading from shared slot
-- Coalesced requests, handle invalidation on reimport
+**NavigationAssetProvider.cs** - Blob loading:
+- Loads `BlobAssetHandler` via `Resources.Load` / `LoadAsync`
+- Returns the handler (call `TryGetBlob` for the ref)
+- Optional ref counting and unload cleanup
 
 ### Design Philosophy (from parent design doc)
 
@@ -174,6 +173,6 @@ Node morton:                 byte (8-bit)
 
 6. **Blob lifetime**: Never cache blob refs across structural changes. Re-read from SectionEntry.
 
-7. **Handle invalidation**: `BlobAssetHandle<T>` may invalidate on reimport. Always check `IsValid` before use.
+7. **Asset reloads**: If a blob asset is reimported/unloaded, reacquire the blob via `NavigationAssetProvider`.
 
 8. **No README**: This package has no README.md. Refer to parent design doc (`World Graph & Navigation Runtime Design.md`) for system-level architecture.

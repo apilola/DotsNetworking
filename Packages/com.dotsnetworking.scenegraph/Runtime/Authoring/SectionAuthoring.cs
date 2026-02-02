@@ -1,6 +1,6 @@
-using BovineLabs.Core.Internal;
-using System;
-using System.Reflection;
+using BovineLabs.Core.Extensions;
+using DotsNetworking.SceneGraph.Components;
+using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.Entities;
 using UnityEngine;
@@ -18,38 +18,23 @@ namespace DotsNetworking.SceneGraph.Authoring
         [SerializeField] private SectionAddress m_Address;
         
         [Tooltip("The blob asset containing the navigation data for this section.")]
-        [SerializeField] private LazyLoadReference<TextAsset> m_BlobAsset;
+        [SerializeField] private LazyLoadReference<BlobAssetHandler> m_BlobAsset;
 
         public SectionAddress Address => m_Address;
-        public LazyLoadReference<TextAsset> BlobAsset => m_BlobAsset;
+        public LazyLoadReference<BlobAssetHandler> BlobAsset => m_BlobAsset;
 
-        public void Initialize(SectionAddress address, TextAsset blobAsset)
+        public void Initialize(SectionAddress address, BlobAssetHandler blobAsset)
         {
             m_Address = address;
-            m_BlobAsset = new LazyLoadReference<TextAsset> { asset = blobAsset };
+            m_BlobAsset = new LazyLoadReference<BlobAssetHandler> { asset = blobAsset };
         }
 
         /// <summary>
-        /// Baker for SectionAuthoring that loads the blob from a TextAsset and registers it
+        /// Baker for SectionAuthoring that loads the blob from a BlobAssetHandler and registers it
         /// with proper hash-based deduplication.
         /// </summary>
         public class SectionBaker : Baker<SectionAuthoring>
         {
-
-            // Reflection MethodInfo (Delegate creation proved unstable across Unity versions/platforms)
-            private static readonly MethodInfo _tryReadInplaceMethod;
-
-            static SectionBaker()
-            {
-                _tryReadInplaceMethod = typeof(BlobAssetReference<Section>)
-                    .GetMethod("TryReadInplace", BindingFlags.NonPublic | BindingFlags.Static);
-
-                if (_tryReadInplaceMethod == null)
-                {
-                    Debug.LogError(
-                        $"Could not find BlobAssetReference<{typeof(Section).Name}>.TryReadInplace via reflection.");
-                }
-            }
 
             public override void Bake(SectionAuthoring authoring)
             {
@@ -58,90 +43,42 @@ namespace DotsNetworking.SceneGraph.Authoring
                     return;
                 }
 
-                if(!TryLoadBlob(authoring.BlobAsset.asset, out BlobAssetReference<Section> blob))
+                var asset = authoring.BlobAsset.asset;
+                if (asset == null)
                 {
                     return;
                 }
 
-                DependsOn(authoring.BlobAsset.asset);
-                if (!blob.IsCreated)
+                DependsOn(asset);
+                if (!asset.IsCreated)
                 {
+                    Debug.LogError($"Blob asset for section at address {authoring.Address} is not created.");
                     return;
                 }
 
-                // Compute a hash for deduplication
-                var hash = ComputeBlobHash(blob);
+                var hash = asset.GetHash();
+                BlobAssetReference<Section> blob;
                 // Try to get an existing blob with the same hash
                 if (!TryGetBlobAssetReference(hash, out BlobAssetReference<Section> existingBlob))
                 {
                     unsafe
                     {
-                        blob = BlobAssetReference<Section>.Create(blob.GetUnsafePtr(), (int) authoring.BlobAsset.asset.dataSize);
+                        blob = BlobAssetReference<Section>.Create(asset.GetUnsafePtr(),(int) asset.DataSize);
                     }
-                    // Register this blob with the computed hash for deduplication
                     AddBlobAssetWithCustomHash(ref blob, hash);
                 }
                 else
                 {
                     blob = existingBlob;
                 }
+
                 // Create the entity and add the component
                 var entity = GetEntity(TransformUsageFlags.None);
-                AddComponent(entity, new SectionBlobComponent
+                AddComponent(entity, authoring.Address);
+                AddComponent(entity, new Components.SectionBlob
                 {
-                    Address = authoring.Address,
                     BlobRef = blob
                 });
-            }
-
-            /// <summary>
-            /// Computes a hash from a BlobAssetReference using BovineLabs' internal hash extraction.
-            /// </summary>
-            private static unsafe Unity.Entities.Hash128 ComputeBlobHash(BlobAssetReference<Section> blobRef)
-            {
-                // Use BovineLabs' internal method to get the blob hash
-                long lhash = BlobAssetReferenceInternal.GetHash(blobRef);
-
-                // Convert the long hash to a Hash128 (zero-extend)
-                Unity.Entities.Hash128 hash = default;
-                UnsafeUtility.MemCpy(&hash, &lhash, sizeof(long));
-                return hash;
-            }
-
-            private unsafe bool TryLoadBlob(TextAsset asset, out BlobAssetReference<Section> blobRef)
-            {
-                blobRef = default;
-
-                if (asset == null) return false;
-                if (_tryReadInplaceMethod == null) return false;
-
-                var nativeData = asset.GetData<byte>();
-                if (!nativeData.IsCreated || nativeData.Length == 0) return false;
-
-                var ptr = (IntPtr)nativeData.GetUnsafeReadOnlyPtr();
-
-                object[] parameters =
-                {
-                    ptr,
-                    (long)nativeData.Length,
-                    0, //Replace me with const version
-                    default(BlobAssetReference<Section>),
-                    0
-                };
-
-                try
-                {
-                    bool success = (bool)_tryReadInplaceMethod.Invoke(null, parameters);
-                    if (success)
-                        blobRef = (BlobAssetReference<Section>)parameters[3];
-
-                    return success;
-                }
-                catch (Exception e)
-                {
-                    Debug.LogError($"TryReadInplace invoke failed: {e.Message}");
-                    return false;
-                }
             }
         }
     }

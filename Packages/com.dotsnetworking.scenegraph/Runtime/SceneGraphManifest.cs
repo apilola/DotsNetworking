@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using BovineLabs.Core.Settings;
+using DotsNetworking.SceneGraph.Components;
 using Unity.Entities.Content;
 using UnityEngine;
 using EntitiesHash128 = Unity.Entities.Hash128;
@@ -12,7 +14,7 @@ namespace DotsNetworking.SceneGraph
     {
         public SectionAddress Address;
         public string ResourceKey;
-        public WeakObjectReference<TextAsset> SectionBlob;
+        public WeakObjectReference<BlobAssetHandler> SectionBlob;
     }
 
     [Serializable]
@@ -36,6 +38,10 @@ namespace DotsNetworking.SceneGraph
         [SerializeField] private List<SubsceneDefinition> m_Subscenes = new List<SubsceneDefinition>();
 
         public IReadOnlyList<SubsceneDefinition> Subscenes => m_Subscenes;
+
+        public int SubsceneCount => m_Subscenes.Count;
+
+        public int SectionCount => m_Subscenes.SelectMany(x => x.Sections).Count();
 
         /// <summary>
         /// Gets all section entries for a specific subscene.

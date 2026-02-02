@@ -1,8 +1,12 @@
 using System.Collections.Generic;
 using BovineLabs.Core.Editor.Settings;
+using BovineLabs.Core.Editor.Extensions;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using DotsNetworking.SceneGraph.Authoring;
+using DotsNetworking.SceneGraph.Components;
+using Unity.Entities;
 using EntitiesHash128 = Unity.Entities.Hash128;
 using DotsNetworking.SceneGraph.Utils;
 
@@ -102,6 +106,13 @@ namespace DotsNetworking.SceneGraph.Editor
                 {
                     SceneGraphBakingService.RebuildManifest(scene);
                     m_CachedManifest = null; // Force refresh after rebuild
+                    m_CachedSceneSections = null;
+                }
+
+                if (GUILayout.Button("Regenerate SectionAuthoring Objects"))
+                {
+                    RegenerateSectionAuthoring(authoring, scene.path);
+                    m_CachedManifest = null;
                     m_CachedSceneSections = null;
                 }
             }
@@ -245,8 +256,163 @@ namespace DotsNetworking.SceneGraph.Editor
         {
             return EditorSettingsUtility.GetSettings<SceneGraphManifest>();
         }
+
+        private void RegenerateSectionAuthoring(SceneGraphBakeAuthoring authoring, string scenePath)
+        {
+            var manifest = LoadManifest();
+            if (manifest == null)
+            {
+                Debug.LogWarning("SceneGraph manifest not found.");
+                return;
+            }
+
+            var sceneGuid = SceneGraphEditorSettings.instance.GetSceneGuidForScene(scenePath);
+            if (sceneGuid.Equals(default))
+            {
+                Debug.LogWarning($"Failed to resolve scene GUID for scene: {scenePath}");
+                return;
+            }
+
+            var sections = manifest.GetSectionsForSubscene(sceneGuid) ?? new List<SectionDefinition>();
+            var desired = new Dictionary<SectionAddress, SectionDefinition>();
+            foreach (var section in sections)
+            {
+                if (!desired.ContainsKey(section.Address))
+                {
+                    desired.Add(section.Address, section);
+                }
+            }
+
+            var existing = authoring.GetComponentsInChildren<SectionAuthoring>(true);
+            var existingByAddress = new Dictionary<SectionAddress, SectionAuthoring>();
+            var duplicates = new List<SectionAuthoring>();
+
+            foreach (var section in existing)
+            {
+                if (existingByAddress.ContainsKey(section.Address))
+                {
+                    duplicates.Add(section);
+                }
+                else
+                {
+                    existingByAddress.Add(section.Address, section);
+                }
+            }
+
+            foreach (var dup in duplicates)
+            {
+                Undo.DestroyObjectImmediate(dup.gameObject);
+            }
+
+            foreach (var kvp in existingByAddress)
+            {
+                if (!desired.ContainsKey(kvp.Key))
+                {
+                    Undo.DestroyObjectImmediate(kvp.Value.gameObject);
+                }
+            }
+
+            foreach (var kvp in desired)
+            {
+                var address = kvp.Key;
+                var entry = kvp.Value;
+                var blobAsset = ResolveBlobAsset(entry);
+                string desiredName = GetSectionObjectName(address);
+                var sectionKey = SceneGraphMath.UnpackSectionId(address.SectionId);
+                var desiredPosition = GetSectionBounds(sectionKey).center;
+                int desiredSectionIndex = (int)address.SectionId;
+
+                if (!existingByAddress.TryGetValue(address, out var sectionAuthoring))
+                {
+                    var go = new GameObject(desiredName);
+                    Undo.RegisterCreatedObjectUndo(go, "Create SectionAuthoring");
+                    go.transform.SetParent(authoring.transform, false);
+                    go.transform.position = desiredPosition;
+                    sectionAuthoring = Undo.AddComponent<SectionAuthoring>(go);
+                    sectionAuthoring.Initialize(address, blobAsset);
+                    EnsureSceneSectionComponent(go, desiredSectionIndex);
+                    EditorUtility.SetDirty(sectionAuthoring);
+                }
+                else
+                {
+                    bool changed = false;
+                    if (sectionAuthoring.Address.Equals(address) == false)
+                    {
+                        changed = true;
+                    }
+
+                    var currentBlob = sectionAuthoring.BlobAsset.isSet ? sectionAuthoring.BlobAsset.asset : null;
+                    if (currentBlob != blobAsset)
+                    {
+                        changed = true;
+                    }
+
+                    if (changed)
+                    {
+                        Undo.RecordObject(sectionAuthoring, "Update SectionAuthoring");
+                        sectionAuthoring.Initialize(address, blobAsset);
+                        EditorUtility.SetDirty(sectionAuthoring);
+                    }
+
+                    if (sectionAuthoring.gameObject.name != desiredName)
+                    {
+                        Undo.RecordObject(sectionAuthoring.gameObject, "Rename SectionAuthoring");
+                        sectionAuthoring.gameObject.name = desiredName;
+                    }
+
+                    if (sectionAuthoring.transform.parent != authoring.transform)
+                    {
+                        Undo.SetTransformParent(sectionAuthoring.transform, authoring.transform, "Reparent SectionAuthoring");
+                    }
+
+                    if ((sectionAuthoring.transform.position - desiredPosition).sqrMagnitude > 0.0001f)
+                    {
+                        Undo.RecordObject(sectionAuthoring.transform, "Move SectionAuthoring");
+                        sectionAuthoring.transform.position = desiredPosition;
+                    }
+
+                    EnsureSceneSectionComponent(sectionAuthoring.gameObject, desiredSectionIndex);
+                }
+            }
+
+            EditorSceneManager.MarkSceneDirty(authoring.gameObject.scene);
+        }
+
+        private static string GetSectionObjectName(SectionAddress address)
+        {
+            return $"Section_{address.SectionId}";
+        }
+
+        private static BlobAssetHandler ResolveBlobAsset(SectionDefinition entry)
+        {
+            var asset = entry.SectionBlob.GetEditorObject<BlobAssetHandler>();
+            if (asset != null)
+            {
+                return asset;
+            }
+
+            if (!string.IsNullOrEmpty(entry.ResourceKey))
+            {
+                return Resources.Load<BlobAssetHandler>(entry.ResourceKey);
+            }
+
+            return null;
+        }
+
+        private static void EnsureSceneSectionComponent(GameObject target, int sectionIndex)
+        {
+            var sceneSection = target.GetComponent<SceneSectionComponent>();
+            if (sceneSection == null)
+            {
+                sceneSection = Undo.AddComponent<SceneSectionComponent>(target);
+            }
+
+            if (sceneSection.SectionIndex != sectionIndex)
+            {
+                Undo.RecordObject(sceneSection, "Update SceneSectionComponent");
+                sceneSection.SectionIndex = sectionIndex;
+                EditorUtility.SetDirty(sceneSection);
+            }
+        }
     }
 }
-
-
-

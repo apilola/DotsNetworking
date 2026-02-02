@@ -19,8 +19,7 @@ MonoBehaviour:
         y: 1335588788
         z: 2997324208
         w: 3593913156
-    ScenePath: Assets/Synty/AnimationBaseLocomotion/Samples/Scenes/Demo_01_Sidekick/New
-      Sub Scene.unity
+    ScenePath: Assets/Synty/AnimationBaseLocomotion/Samples/Scenes/Demo_01_Sidekick/PrototypeScene.unity
     Sections:
     - Address:
         m_SceneGuid:
@@ -34,15 +33,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 3788109180
-                y: 1293505481
-                z: 662424765
-                w: 2273366947
-            IdentifierType: 1
+                x: 3270517499
+                y: 1336161119
+                z: 2052255909
+                w: 4031732310
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -56,15 +55,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 1804096934
-                y: 1314926792
-                z: 1091054986
-                w: 946989792
-            IdentifierType: 1
+                x: 1066353846
+                y: 1085328726
+                z: 3111968659
+                w: 1168343449
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -78,15 +77,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 2831967601
-                y: 1201004235
-                z: 3886870695
-                w: 2078928108
-            IdentifierType: 1
+                x: 962683756
+                y: 1216419797
+                z: 1659429785
+                w: 2225254647
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -100,15 +99,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 3186041969
-                y: 1079849532
-                z: 993024643
-                w: 3392856837
-            IdentifierType: 1
+                x: 2025766191
+                y: 1334333262
+                z: 1155836037
+                w: 3141205244
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -122,15 +121,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 1727935533
-                y: 1325917012
-                z: 1264632495
-                w: 3660455965
-            IdentifierType: 1
+                x: 2717886587
+                y: 1250546629
+                z: 4174307984
+                w: 909374119
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -144,15 +143,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 3321693116
-                y: 1104481313
-                z: 3828473740
-                w: 3443919118
-            IdentifierType: 1
+                x: 4241563832
+                y: 1191079144
+                z: 169803424
+                w: 672117465
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -166,15 +165,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 504794876
-                y: 1074182685
-                z: 2506149558
-                w: 2691315789
-            IdentifierType: 1
+                x: 3918682687
+                y: 1218872772
+                z: 1797712829
+                w: 1671431725
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -188,15 +187,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 1509718061
-                y: 1334785285
-                z: 2867310478
-                w: 2576875680
-            IdentifierType: 1
+                x: 2581059040
+                y: 1235364778
+                z: 1145361298
+                w: 3527698944
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -210,15 +209,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 4038234726
-                y: 1223602624
-                z: 2235684227
-                w: 245382250
-            IdentifierType: 1
+                x: 3198246385
+                y: 1135890078
+                z: 790505344
+                w: 1290810961
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -232,15 +231,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 1707704447
-                y: 1224880817
-                z: 2817718158
-                w: 569406720
-            IdentifierType: 1
+                x: 359036230
+                y: 1083139425
+                z: 3252035458
+                w: 3856483161
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -254,15 +253,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 953287938
-                y: 1161101174
-                z: 3905388957
-                w: 2917410071
-            IdentifierType: 1
+                x: 1152294271
+                y: 1182506164
+                z: 3738796446
+                w: 4041347884
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -276,15 +275,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 1502735216
-                y: 1199620359
-                z: 4281483150
-                w: 1790452620
-            IdentifierType: 1
+                x: 4178143526
+                y: 1127437425
+                z: 4279657146
+                w: 1407493234
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -298,15 +297,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 2692999812
-                y: 1270799479
-                z: 3553633206
-                w: 2630644739
-            IdentifierType: 1
+                x: 1241035143
+                y: 1204675847
+                z: 3569943978
+                w: 2976110157
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -320,15 +319,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 1967390766
-                y: 1153550472
-                z: 660602013
-                w: 2523524492
-            IdentifierType: 1
+                x: 2074586653
+                y: 1199449079
+                z: 791458190
+                w: 1793044244
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -342,15 +341,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 3329095201
-                y: 1230593543
-                z: 2749911967
-                w: 3590241444
-            IdentifierType: 1
+                x: 628709118
+                y: 1281789077
+                z: 173458821
+                w: 3744909250
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -364,15 +363,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 4077292738
-                y: 1236382711
-                z: 3319156135
-                w: 1935448520
-            IdentifierType: 1
+                x: 2064957913
+                y: 1132111007
+                z: 1833255071
+                w: 876606546
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -386,15 +385,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 4045795643
-                y: 1084502034
-                z: 1337560453
-                w: 2513608708
-            IdentifierType: 1
+                x: 1772994925
+                y: 1210732619
+                z: 2569045150
+                w: 818111510
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -408,15 +407,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 2915284847
-                y: 1233276235
-                z: 2919948687
-                w: 2657917165
-            IdentifierType: 1
+                x: 3666310240
+                y: 1292453388
+                z: 3295199644
+                w: 1387012760
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -430,15 +429,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 159242728
-                y: 1324838716
-                z: 4186998914
-                w: 284267493
-            IdentifierType: 1
+                x: 584313760
+                y: 1094645156
+                z: 2662681528
+                w: 766970007
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -452,15 +451,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 3413722122
-                y: 1294887617
-                z: 936305839
-                w: 4107879426
-            IdentifierType: 1
+                x: 2442062995
+                y: 1328348176
+                z: 167064727
+                w: 1889551711
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -474,15 +473,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 1709333871
-                y: 1315610087
-                z: 1256246938
-                w: 721526228
-            IdentifierType: 1
+                x: 3428378311
+                y: 1218067869
+                z: 3226815374
+                w: 2340586322
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -496,15 +495,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 2879425514
-                y: 1124481357
-                z: 2555820967
-                w: 3846592108
-            IdentifierType: 1
+                x: 4254151741
+                y: 1299772530
+                z: 904793745
+                w: 1673699202
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -518,15 +517,15 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 2364013978
-                y: 1306386155
-                z: 4060327046
-                w: 3500994262
-            IdentifierType: 1
+                x: 426797640
+                y: 1115167223
+                z: 1570709659
+                w: 3373496556
+            IdentifierType: 3
           GenerationType: 1
     - Address:
         m_SceneGuid:
@@ -540,13 +539,13 @@ MonoBehaviour:
       SectionBlob:
         Id:
           GlobalId:
-            SceneObjectIdentifier0: 606040076674693619
+            SceneObjectIdentifier0: 11400000
             SceneObjectIdentifier1: 0
             AssetGUID:
               Value:
-                x: 1014137015
-                y: 1180331957
-                z: 1341353392
-                w: 3092007442
-            IdentifierType: 1
+                x: 1320503751
+                y: 1283421184
+                z: 659150783
+                w: 2362708438
+            IdentifierType: 3
           GenerationType: 1

@@ -9,13 +9,13 @@ using Unity.Collections;
 using Unity.Jobs;
 using Unity.Entities;
 using Unity.Entities.Content;
-using DotsNetworking.SceneGraph;
 using DotsNetworking.SceneGraph.Utils;
 using Unity.Entities.Serialization;
 using UnityEngine.SceneManagement;
 using EntitiesHash128 = Unity.Entities.Hash128;
 using BovineLabs.Core.Internal;
 using Unity.Collections.LowLevel.Unsafe;
+using DotsNetworking.SceneGraph.Components;
 
 namespace DotsNetworking.SceneGraph.Editor
 {
@@ -115,7 +115,7 @@ namespace DotsNetworking.SceneGraph.Editor
             }
 
             var scannedSections = new Dictionary<int3, SectionBakeData>();
-            var blobCache = new Dictionary<SectionAddress, BlobAssetHandle<Section>>();
+            var blobCache = new Dictionary<SectionAddress, BlobAssetHandler>();
             var bakedChunkCache = new Dictionary<ChunkAddress, EditorChunkHeights>();
 
             // 3. Scan geometry for all sections first
@@ -182,7 +182,7 @@ namespace DotsNetworking.SceneGraph.Editor
                 return;
             }
 
-            var blobCache = new Dictionary<SectionAddress, BlobAssetHandle<Section>>();
+            var blobCache = new Dictionary<SectionAddress, BlobAssetHandler>();
             var bakedChunkCache = new Dictionary<ChunkAddress, EditorChunkHeights>();
 
             try
@@ -234,7 +234,7 @@ namespace DotsNetworking.SceneGraph.Editor
             {
                 Directory.CreateDirectory(folderPath);
             }
-            return $"{folderPath}/Section_{sectionIndex}.navblob";
+            return $"{folderPath}/Section_{sectionIndex}.asset";
         }
 
         private static string GetSubsceneFolderPath(EntitiesHash128 sceneGuid)
@@ -270,27 +270,22 @@ namespace DotsNetworking.SceneGraph.Editor
             }
 
             var entries = new List<SectionDefinition>();
-            string[] guids = AssetDatabase.FindAssets("t:TextAsset", new[] { folderPath });
+            string[] guids = AssetDatabase.FindAssets("t:BlobAssetHandler", new[] { folderPath });
             foreach (string guid in guids)
             {
                 string assetPath = AssetDatabase.GUIDToAssetPath(guid);
-                if (!assetPath.EndsWith(".navblob", System.StringComparison.OrdinalIgnoreCase))
-                {
-                    continue;
-                }
-
                 string fileName = Path.GetFileNameWithoutExtension(assetPath);
                 if (!TryParseSectionIndex(fileName, out uint sectionIndex))
                 {
                     continue;
                 }
 
-                var textAsset = AssetDatabase.LoadAssetAtPath<TextAsset>(assetPath);
+                var byteAsset = AssetDatabase.LoadAssetAtPath<BlobAssetHandler>(assetPath);
                 var entry = new SectionDefinition
                 {
                     Address = new SectionAddress(sceneGuid, sectionIndex),
                     ResourceKey = NavigationAssetProvider.GetResourceKey(sceneGuid, sectionIndex),
-                    SectionBlob = new WeakObjectReference<TextAsset>(textAsset)
+                    SectionBlob = new WeakObjectReference<BlobAssetHandler>(byteAsset)
                 };
                 entries.Add(entry);
             }
@@ -315,7 +310,7 @@ namespace DotsNetworking.SceneGraph.Editor
         private static void TryDeleteSectionAsset(int3 sectionKey, EntitiesHash128 sceneGuid)
         {
             string assetPath = GetSectionAssetPath(sectionKey, sceneGuid);
-            if (AssetDatabase.LoadAssetAtPath<Object>(assetPath) != null)
+            if (AssetDatabase.LoadAssetAtPath<BlobAssetHandler>(assetPath) != null)
             {
                 AssetDatabase.DeleteAsset(assetPath);
             }
@@ -464,7 +459,7 @@ namespace DotsNetworking.SceneGraph.Editor
         private static void BuildAndWriteSection(
             SectionBakeData sectionData,
             Dictionary<int3, SectionBakeData> scannedSections,
-            Dictionary<SectionAddress, BlobAssetHandle<Section>> blobCache,
+            Dictionary<SectionAddress, BlobAssetHandler> blobCache,
             Dictionary<ChunkAddress, EditorChunkHeights> bakedChunkCache,
             EntitiesHash128 sceneGuid)
         {
@@ -504,14 +499,32 @@ namespace DotsNetworking.SceneGraph.Editor
                     }
                 }
 
-                BlobAssetReference<Section>.Write(builder, assetPath, 0);
+                using (var writer = new MemoryBinaryWriter())
+                {
+                    BlobAssetReference<Section>.Write(writer, builder, 0);
+                    SaveSectionAsset(assetPath, writer);
+                }
             }
 
-            AssetDatabase.ImportAsset(assetPath);
             uint sectionIndex = SceneGraphMath.PackSectionId(sectionData.SectionKey);
             var sectionAddress = new SectionAddress(sceneGuid, sectionIndex);
             Debug.Log($"Baked Section {sectionData.SectionKey} to {assetPath} at Address {sectionAddress}");
             NavigationAssetProvider.ForceReloadOfBlobAsset(sectionAddress);
+        }
+
+        private static unsafe void SaveSectionAsset(string assetPath, MemoryBinaryWriter writer)
+        {
+            var asset = AssetDatabase.LoadAssetAtPath<BlobAssetHandler>(assetPath);
+            if (asset == null)
+            {
+                asset = ScriptableObject.CreateInstance<BlobAssetHandler>();
+                AssetDatabase.CreateAsset(asset, assetPath);
+            }
+
+            using var bytes = NativeArrayUnsafeUtility.ConvertExistingDataToNativeArray<byte>(writer.Data, writer.Length, Allocator.Temp);
+            
+            asset.UpdateData(bytes);
+            EditorUtility.SetDirty(asset);
         }
 
         private static void SaveManifest(SceneGraphManifest manifest)
@@ -529,7 +542,7 @@ namespace DotsNetworking.SceneGraph.Editor
             int3 r,
             int3 c,
             Dictionary<int3, SectionBakeData> scannedSections,
-            Dictionary<SectionAddress, BlobAssetHandle<Section>> blobCache,
+            Dictionary<SectionAddress, BlobAssetHandler> blobCache,
             Dictionary<ChunkAddress, EditorChunkHeights> bakedChunkCache,
             EntitiesHash128 sceneGuid,
             float[] heights,
@@ -657,7 +670,7 @@ namespace DotsNetworking.SceneGraph.Editor
             int3 chunk,
             int2 node,
             Dictionary<int3, SectionBakeData> scannedSections,
-            Dictionary<SectionAddress, BlobAssetHandle<Section>> blobCache,
+            Dictionary<SectionAddress, BlobAssetHandler> blobCache,
             Dictionary<ChunkAddress, EditorChunkHeights> bakedChunkCache,
             EntitiesHash128 sceneGuid)
         {
@@ -679,7 +692,7 @@ namespace DotsNetworking.SceneGraph.Editor
             int2 nodeIdx,
             float currentY,
             Dictionary<int3, SectionBakeData> scannedSections,
-            Dictionary<SectionAddress, BlobAssetHandle<Section>> blobCache,
+            Dictionary<SectionAddress, BlobAssetHandler> blobCache,
             Dictionary<ChunkAddress, EditorChunkHeights> bakedChunkCache,
             EntitiesHash128 sceneGuid)
         {
@@ -751,7 +764,7 @@ namespace DotsNetworking.SceneGraph.Editor
             int3 section,
             int3 chunk,
             Dictionary<int3, SectionBakeData> scannedSections,
-            Dictionary<SectionAddress, BlobAssetHandle<Section>> blobCache,
+            Dictionary<SectionAddress, BlobAssetHandler> blobCache,
             Dictionary<ChunkAddress, EditorChunkHeights> bakedChunkCache,
             EntitiesHash128 sceneGuid,
             out EditorChunkHeights data)
@@ -782,25 +795,32 @@ namespace DotsNetworking.SceneGraph.Editor
         private static bool TryGetChunkDataFromBlob(
             int3 section,
             int3 chunk,
-            Dictionary<SectionAddress, BlobAssetHandle<Section>> blobCache,
+            Dictionary<SectionAddress, BlobAssetHandler> blobCache,
             EntitiesHash128 sceneGuid,
             out EditorChunkHeights data)
         {
             data = default;
             uint sectionIndex = SceneGraphMath.PackSectionId(section);
             var sectionAddress = new SectionAddress(sceneGuid, sectionIndex);
-            if (!blobCache.TryGetValue(sectionAddress, out var handle))
+            if (!blobCache.TryGetValue(sectionAddress, out var handler))
             {
-                handle = NavigationAssetProvider.CheckOut(sectionAddress);
-                if (!handle.IsValid)
+                handler = NavigationAssetProvider.CheckOut(sectionAddress);
+                if (handler == null || !handler.IsCreated)
                     return false;
-                blobCache[sectionAddress] = handle;
+                blobCache[sectionAddress] = handler;
             }
 
-            if (!handle.IsValid)
+            if (handler == null || !handler.IsCreated)
+            {
+                if (handler != null)
+                {
+                    blobCache.Remove(sectionAddress);
+                    NavigationAssetProvider.Release(sectionAddress);
+                }
                 return false;
+            }
 
-            ref Section r = ref handle.Blob.Value;
+            ref Section r = ref handler.Value;
             ushort morton = SceneGraphMath.EncodeChunkToMorton(chunk);
             if (morton < r.ChunkLookup.Length)
             {

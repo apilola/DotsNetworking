@@ -2,11 +2,17 @@
     "name": "DotsNetworking.SceneGraph.Editor.Tests",
     "rootNamespace": "DotsNetworking.SceneGraph.Tests.Editor",
     "references": [
+        "BovineLabs.Core",
+        "BovineLabs.Core.Editor",
         "DotsNetworking.SceneGraph",
         "DotsNetworking.SceneGraph.Editor",
         "Unity.Mathematics",
         "Unity.Entities",
-        "Unity.Collections"
+        "Unity.Collections",
+        "Unity.Scenes",
+        "Unity.Scenes.Editor",
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner"
     ],
     "includePlatforms": [
         "Editor"
