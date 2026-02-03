@@ -7,6 +7,7 @@ using Unity.Collections.LowLevel.Unsafe;
 
 namespace DotsNetworking.SceneGraph.Collections
 {
+    // README: see NativeRegistry.md in this folder for design/usage details.
     [NativeContainer]
     public unsafe struct NativeRegistry<TKey> : IDisposable
         where TKey : unmanaged, IEquatable<TKey>
@@ -79,13 +80,13 @@ namespace DotsNetworking.SceneGraph.Collections
             return typeId != 0 && typeIdToIndex.ContainsKey(typeId);
         }
 
-        public void RegisterKey(TKey key)
+        public int RegisterKey(TKey key)
         {
             CheckCreated();
             CheckWrite();
 
-            if (keyToIndex.TryGetValue(key, out _))
-                return;
+            if (keyToIndex.TryGetValue(key, out var existingIndex))
+                return existingIndex;
 
             EnsureKeyCapacity(keyCount + 1);
             var index = keyCount++;
@@ -97,6 +98,8 @@ namespace DotsNetworking.SceneGraph.Collections
                 var ops = NativeRegistryTypeRegistry.GetOps(entry.TypeId);
                 ops.Resize(entry.Storage, keyCount);
             }
+
+            return index;
         }
 
         public bool TryGetIndex(TKey key, out int index)

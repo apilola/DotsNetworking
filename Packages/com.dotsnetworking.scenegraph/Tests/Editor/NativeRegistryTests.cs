@@ -189,6 +189,32 @@ namespace DotsNetworking.SceneGraph.Tests.Editor
         }
 
         [Test]
+        public void WriterChangesAreVisibleToSubsequentReaders()
+        {
+            var registry = new NativeRegistry<int>(pageSize: 2, keyCapacity: 1, typeCapacity: 1, allocator: Allocator.Persistent);
+            try
+            {
+                registry.RegisterType<int>();
+                registry.RegisterKey(99);
+
+                using (var write = registry.AcquireWrite<int>(99))
+                {
+                    write.Value = 777;
+                }
+
+                using (var read = registry.AcquireRead<int>(99))
+                {
+                    Assert.IsTrue(read.IsAccessible);
+                    Assert.AreEqual(777, read.Value);
+                }
+            }
+            finally
+            {
+                registry.Dispose();
+            }
+        }
+
+        [Test]
         public void Builder_CreatesFromTypes()
         {
             var registry = NativeRegistryBuilder.Create<int>(

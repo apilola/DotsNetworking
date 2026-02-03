@@ -38,6 +38,7 @@ namespace DotsNetworking.SceneGraph.Authoring
 
             public override void Bake(SectionAuthoring authoring)
             {
+
                 if (!authoring.BlobAsset.isSet)
                 {
                     return;
