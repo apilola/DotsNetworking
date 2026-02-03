@@ -13,27 +13,6 @@ namespace DotsNetworking.SceneGraph.Tests.Editor
         private World world;
         private EntityManager manager;
 
-        [OneTimeSetUp]
-        public void OneTimeSetUp()
-        {
-            try
-            {
-                SceneSectionRegistryTestSceneBuilder.Build();
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError("SceneSectionRegistrySystemTests OneTimeSetUp failed.");
-                Debug.LogException(ex);
-                throw;
-            }
-        }
-
-        [OneTimeTearDown]
-        public void OneTimeTearDown()
-        {
-            new SceneSectionRegistryTestSceneBuilder().Cleanup();
-        }
-
         [SetUp]
         public void SetUp()
         {
@@ -62,19 +41,14 @@ namespace DotsNetworking.SceneGraph.Tests.Editor
             Assert.Greater(manifest.SectionCount, 0, "Test scene did not bake any sections.");
 
             var registry = manager.CreateEntityQuery(typeof(SceneSectionRegistry)).GetSingleton<SceneSectionRegistry>();
-            Assert.IsTrue(registry.Map.IsCreated);
-            Assert.AreEqual(manifest.SectionCount, registry.Map.Count());
+            Assert.IsTrue(registry.Registry.IsCreated);
+            Assert.AreEqual(manifest.SectionCount, registry.Registry.KeyCount);
 
             foreach (var subscene in manifest.Subscenes)
             {
                 foreach (var section in subscene.Sections)
                 {
-                    Assert.IsTrue(registry.Map.TryGetValue(section.Address, out var registryEntity));
-                    Assert.IsTrue(manager.HasComponent<SectionAddress>(registryEntity));
-                    Assert.IsTrue(manager.HasComponent<SectionBlob>(registryEntity));
-
-                    var address = manager.GetComponentData<SectionAddress>(registryEntity);
-                    Assert.AreEqual(section.Address, address);
+                    Assert.IsTrue(registry.Registry.TryGetIndex(section.Address, out _));
                 }
             }
         }
@@ -92,31 +66,46 @@ namespace DotsNetworking.SceneGraph.Tests.Editor
 
             var address = manifest.Subscenes[0].Sections[0].Address;
 
-            var owner = manager.CreateEntity(typeof(SectionBlob), typeof(SectionAddress));
-            manager.SetComponentData(owner, address);
-            manager.AddSharedComponent(owner, new SceneSection
+            var blobRef = CreateTestBlob();
+            try
             {
-                SceneGUID = address.SceneGuid,
-                Section = (int)address.SectionId
-            });
+                var owner = manager.CreateEntity(typeof(SectionBlob), typeof(SceneSection));
+                manager.SetComponentData(owner, new SectionBlob { BlobRef = blobRef });
+                manager.SetSharedComponentManaged(owner, new SceneSection
+                {
+                    SceneGUID = address.SceneGuid,
+                    Section = (int)address.SectionId
+                });
 
-            systemHandle.Update(world.Unmanaged);
+                systemHandle.Update(world.Unmanaged);
 
-            Assert.IsTrue(manager.HasComponent<SceneSectionBlobRegistered>(owner));
-            var registered = manager.GetComponentData<SceneSectionBlobRegistered>(owner);
-            Assert.AreEqual(address, registered.Address);
+                Assert.IsTrue(manager.HasComponent<SceneSectionBlobRegistered>(owner));
+                var registered = manager.GetComponentData<SceneSectionBlobRegistered>(owner);
+                Assert.AreEqual(address, registered.Address);
 
-            var registry = manager.CreateEntityQuery(typeof(SceneSectionRegistry)).GetSingleton<SceneSectionRegistry>();
-            Assert.IsTrue(registry.Map.TryGetValue(address, out var registryEntity));
-            Assert.AreEqual(registryEntity, registered.RegistryEntity);
-            Assert.IsTrue(manager.HasComponent<SectionBlob>(registryEntity));
+                var registry = manager.CreateEntityQuery(typeof(SceneSectionRegistry)).GetSingleton<SceneSectionRegistry>();
+                Assert.IsTrue(registry.Registry.TryGetIndex(address, out _));
+                using (var read = registry.Registry.AcquireRead<BlobAssetReference<Section>>(address))
+                {
+                    Assert.IsTrue(read.IsAccessible);
+                    Assert.IsTrue(read.Value.IsCreated);
+                }
 
-            manager.RemoveComponent<SectionBlob>(owner);
-            systemHandle.Update(world.Unmanaged);
+                manager.DestroyEntity(owner);
+                systemHandle.Update(world.Unmanaged);
 
-            Assert.IsFalse(manager.HasComponent<SceneSectionBlobRegistered>(owner));
-            var registryBlob = manager.GetComponentData<SectionBlob>(registryEntity);
-            Assert.IsFalse(registryBlob.BlobRef.IsCreated);
+                Assert.IsFalse(manager.HasComponent<SceneSectionBlobRegistered>(owner));
+                using (var read = registry.Registry.AcquireRead<BlobAssetReference<Section>>(address))
+                {
+                    Assert.IsTrue(read.IsAccessible);
+                    Assert.IsFalse(read.Value.IsCreated);
+                }
+            }
+            finally
+            {
+                if (blobRef.IsCreated)
+                    blobRef.Dispose();
+            }
         }
 
         [Test]
@@ -135,8 +124,7 @@ namespace DotsNetworking.SceneGraph.Tests.Editor
             var blobRef = CreateTestBlob();
             try
             {
-                var owner = manager.CreateEntity(typeof(SectionBlob), typeof(SectionAddress));
-                manager.SetComponentData(owner, address);
+                var owner = manager.CreateEntity(typeof(SectionBlob));
                 manager.SetComponentData(owner, new SectionBlob { BlobRef = blobRef });
                 manager.AddSharedComponent(owner, new SceneSection
                 {
@@ -147,16 +135,20 @@ namespace DotsNetworking.SceneGraph.Tests.Editor
                 systemHandle.Update(world.Unmanaged);
 
                 var registry = manager.CreateEntityQuery(typeof(SceneSectionRegistry)).GetSingleton<SceneSectionRegistry>();
-                Assert.IsTrue(registry.Map.TryGetValue(address, out var registryEntity));
-
-                var before = manager.GetComponentData<SectionBlob>(registryEntity);
-                Assert.IsTrue(before.BlobRef.IsCreated);
+                using (var read = registry.Registry.AcquireRead<BlobAssetReference<Section>>(address))
+                {
+                    Assert.IsTrue(read.IsAccessible);
+                    Assert.IsTrue(read.Value.IsCreated);
+                }
 
                 manager.DestroyEntity(owner);
                 systemHandle.Update(world.Unmanaged);
 
-                var after = manager.GetComponentData<SectionBlob>(registryEntity);
-                Assert.IsFalse(after.BlobRef.IsCreated);
+                using (var read = registry.Registry.AcquireRead<BlobAssetReference<Section>>(address))
+                {
+                    Assert.IsTrue(read.IsAccessible);
+                    Assert.IsFalse(read.Value.IsCreated);
+                }
             }
             finally
             {

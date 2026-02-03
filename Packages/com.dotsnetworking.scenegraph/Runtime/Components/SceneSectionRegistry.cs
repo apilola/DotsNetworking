@@ -1,15 +1,18 @@
+using DotsNetworking.SceneGraph.Collections;
 using DotsNetworking.SceneGraph.Components;
 using Unity.Collections;
+using Unity.Collections.LowLevel.Unsafe;
 using Unity.Entities;
 
 namespace DotsNetworking.SceneGraph
 {
     /// <summary>
-    /// Runtime registry for mapping section addresses to their entities.
+    /// Runtime registry for per-section data keyed by SectionAddress.
     /// </summary>
+    [NativeContainer]
     public struct SceneSectionRegistry : IComponentData
     {
-        public NativeParallelHashMap<SectionAddress, Entity> Map;
+        public NativeRegistry<SectionAddress> Registry;
     }
 
     /// <summary>
@@ -18,6 +21,5 @@ namespace DotsNetworking.SceneGraph
     public struct SceneSectionBlobRegistered : ICleanupComponentData
     {
         public SectionAddress Address;
-        public Entity RegistryEntity;
     }
 }

@@ -2,25 +2,191 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using BovineLabs.Core.Editor.Settings;
+using BovineLabs.Core.Editor.Extensions;
 using UnityEditor;
 using UnityEngine;
 using Unity.Mathematics;
 using Unity.Collections;
-using Unity.Jobs;
 using Unity.Entities;
 using Unity.Entities.Content;
 using DotsNetworking.SceneGraph.Utils;
 using Unity.Entities.Serialization;
 using UnityEngine.SceneManagement;
+using UnityEditor.SceneManagement;
 using EntitiesHash128 = Unity.Entities.Hash128;
-using BovineLabs.Core.Internal;
 using Unity.Collections.LowLevel.Unsafe;
 using DotsNetworking.SceneGraph.Components;
-
+using DotsNetworking.SceneGraph.Authoring;
 namespace DotsNetworking.SceneGraph.Editor
 {
     public static class SceneGraphBakingService
     {
+        public static void RegenerateSectionAuthoring(SceneGraphBakeAuthoring authoring)
+        {
+            if (authoring == null)
+            {
+                Debug.LogWarning("SceneGraphBakeAuthoring is null.");
+                return;
+            }
+
+            var scene = authoring.gameObject.scene;
+            if (!scene.IsValid() || string.IsNullOrEmpty(scene.path))
+            {
+                Debug.LogWarning("SceneGraphBakeAuthoring must be in a saved scene.");
+                return;
+            }
+
+            var manifest = EditorSettingsUtility.GetSettings<SceneGraphManifest>();
+            if (manifest == null)
+            {
+                Debug.LogWarning("SceneGraph manifest not found.");
+                return;
+            }
+
+            var sceneGuid = SceneGraphEditorSettings.instance.GetSceneGuidForScene(scene.path);
+            if (sceneGuid.Equals(default))
+            {
+                Debug.LogWarning($"Failed to resolve scene GUID for scene: {scene.path}");
+                return;
+            }
+
+            var sections = manifest.GetSectionsForSubscene(sceneGuid) ?? new List<SectionDefinition>();
+            var desired = new Dictionary<SectionAddress, SectionDefinition>();
+            foreach (var section in sections)
+            {
+                if (!desired.ContainsKey(section.Address))
+                {
+                    desired.Add(section.Address, section);
+                }
+            }
+
+            var existing = authoring.GetComponentsInChildren<SectionAuthoring>(true);
+            var existingByAddress = new Dictionary<SectionAddress, SectionAuthoring>();
+            var duplicates = new List<SectionAuthoring>();
+
+            foreach (var section in existing)
+            {
+                if (existingByAddress.ContainsKey(section.Address))
+                {
+                    duplicates.Add(section);
+                }
+                else
+                {
+                    existingByAddress.Add(section.Address, section);
+                }
+            }
+
+            foreach (var dup in duplicates)
+            {
+                Undo.DestroyObjectImmediate(dup.gameObject);
+            }
+
+            foreach (var kvp in existingByAddress)
+            {
+                if (!desired.ContainsKey(kvp.Key))
+                {
+                    Undo.DestroyObjectImmediate(kvp.Value.gameObject);
+                }
+            }
+
+            foreach (var kvp in desired)
+            {
+                var address = kvp.Key;
+                var entry = kvp.Value;
+                var blobAsset = ResolveBlobAsset(entry);
+                string desiredName = GetSectionObjectName(address);
+                var sectionKey = SceneGraphMath.UnpackSectionId(address.SectionId);
+                var desiredPosition = GetSectionBounds(sectionKey).center;
+                if (!existingByAddress.TryGetValue(address, out var sectionAuthoring))
+                {
+                    var go = new GameObject(desiredName);
+                    Undo.RegisterCreatedObjectUndo(go, "Create SectionAuthoring");
+                    go.transform.SetParent(authoring.transform, false);
+                    go.transform.position = desiredPosition;
+                    sectionAuthoring = Undo.AddComponent<SectionAuthoring>(go);
+                    sectionAuthoring.Initialize(address, blobAsset);
+                    EditorUtility.SetDirty(sectionAuthoring);
+                }
+                else
+                {
+                    bool changed = false;
+                    if (!sectionAuthoring.Address.Equals(address))
+                    {
+                        changed = true;
+                    }
+
+                    var currentBlob = sectionAuthoring.BlobAsset.isSet ? sectionAuthoring.BlobAsset.asset : null;
+                    if (currentBlob != blobAsset)
+                    {
+                        changed = true;
+                    }
+
+                    if (changed)
+                    {
+                        Undo.RecordObject(sectionAuthoring, "Update SectionAuthoring");
+                        sectionAuthoring.Initialize(address, blobAsset);
+                        EditorUtility.SetDirty(sectionAuthoring);
+                    }
+
+                    if (sectionAuthoring.gameObject.name != desiredName)
+                    {
+                        Undo.RecordObject(sectionAuthoring.gameObject, "Rename SectionAuthoring");
+                        sectionAuthoring.gameObject.name = desiredName;
+                    }
+
+                    if (sectionAuthoring.transform.parent != authoring.transform)
+                    {
+                        Undo.SetTransformParent(sectionAuthoring.transform, authoring.transform, "Reparent SectionAuthoring");
+                    }
+
+                    if ((sectionAuthoring.transform.position - desiredPosition).sqrMagnitude > 0.0001f)
+                    {
+                        Undo.RecordObject(sectionAuthoring.transform, "Move SectionAuthoring");
+                        sectionAuthoring.transform.position = desiredPosition;
+                    }
+
+                }
+            }
+
+            EditorSceneManager.MarkSceneDirty(authoring.gameObject.scene);
+        }
+
+        private static string GetSectionObjectName(SectionAddress address)
+        {
+            return $"Section_{address.SectionId}";
+        }
+
+        private static Bounds GetSectionBounds(Unity.Mathematics.int3 sectionKey)
+        {
+            Vector3 min = new Vector3(
+                sectionKey.x * SceneGraphConstants.SectionSizeX,
+                sectionKey.y * SceneGraphConstants.SectionSizeY,
+                sectionKey.z * SceneGraphConstants.SectionSizeZ);
+
+            Vector3 size = new Vector3(
+                SceneGraphConstants.SectionSizeX,
+                SceneGraphConstants.SectionSizeY,
+                SceneGraphConstants.SectionSizeZ);
+
+            return new Bounds(min + size * 0.5f, size);
+        }
+
+        private static BlobAssetHandler ResolveBlobAsset(SectionDefinition entry)
+        {
+            var asset = entry.SectionBlob.GetEditorObject<BlobAssetHandler>();
+            if (asset != null)
+            {
+                return asset;
+            }
+
+            if (!string.IsNullOrEmpty(entry.ResourceKey))
+            {
+                return Resources.Load<BlobAssetHandler>(entry.ResourceKey);
+            }
+
+            return null;
+        }
+
         public static void RebuildManifest(Scene scene)
         {  
             if (!scene.IsValid() || string.IsNullOrEmpty(scene.path))
@@ -521,10 +687,18 @@ namespace DotsNetworking.SceneGraph.Editor
                 AssetDatabase.CreateAsset(asset, assetPath);
             }
 
-            using var bytes = NativeArrayUnsafeUtility.ConvertExistingDataToNativeArray<byte>(writer.Data, writer.Length, Allocator.Temp);
-            
+            var bytes = new byte[writer.Length];
+            if (writer.Length > 0)
+            {
+                fixed (byte* dst = bytes)
+                {
+                    UnsafeUtility.MemCpy(dst, writer.Data, writer.Length);
+                }
+            }
+
             asset.UpdateData(bytes);
             EditorUtility.SetDirty(asset);
+            AssetDatabase.SaveAssetIfDirty(asset);
         }
 
         private static void SaveManifest(SceneGraphManifest manifest)

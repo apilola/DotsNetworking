@@ -46,7 +46,7 @@ namespace DotsNetworking.SceneGraph.Tests.Editor
             var subSceneEditing = subScene.EditingScene;
 
             CreateTestGeometry(subSceneEditing);
-            CreateBakeAuthoring(subSceneEditing);
+            var bakeAuthoring = CreateBakeAuthoring(subSceneEditing);
 
             EditorSceneManager.SaveScene(subSceneEditing);
             EditorSceneManager.SaveScene(parentScene);
@@ -58,13 +58,14 @@ namespace DotsNetworking.SceneGraph.Tests.Editor
 
             SceneGraphBakingService.BakeScene(subSceneEditing, geometryLayer, obstacleLayer);
             SceneGraphBakingService.RebuildManifest(subSceneEditing);
+            SceneGraphBakingService.RegenerateSectionAuthoring(bakeAuthoring);
 
             SceneGuid = SceneGraphEditorSettings.instance.GetSceneGuidForScene(subSceneEditing.path);
             SubScenePath = subSceneEditing.path;
 
             SubSceneInspectorUtility.CloseSceneWithoutSaving(subScene);
             AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
+            AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
         }
 
         private static void CleanupAssets()
@@ -99,7 +100,7 @@ namespace DotsNetworking.SceneGraph.Tests.Editor
             }
 
             AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
+            AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
         }
 
         private static SubScene CreateSubScene(Scene parentScene)
@@ -140,11 +141,12 @@ namespace DotsNetworking.SceneGraph.Tests.Editor
             SceneManager.MoveGameObjectToScene(plane, subSceneEditing);
         }
 
-        private static void CreateBakeAuthoring(Scene subSceneEditing)
+        private static SceneGraphBakeAuthoring CreateBakeAuthoring(Scene subSceneEditing)
         {
             var go = new GameObject("SceneGraphBakeAuthoring");
-            go.AddComponent<SceneGraphBakeAuthoring>();
+            var authoring = go.AddComponent<SceneGraphBakeAuthoring>();
             SceneManager.MoveGameObjectToScene(go, subSceneEditing);
+            return authoring;
         }
 
         private static int GetFirstLayerFromMask(LayerMask mask)

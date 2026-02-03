@@ -522,8 +522,8 @@ namespace DotsNetworking.SceneGraph.Editor
                 }
                 else if (!n1 && Mathf.Abs(h1 - h2) > 0.05f)
                 {
-                    return true;
                     mismatchCount++;
+                    return true;
                 }else if (!n1 && a.Flags[i] != b.Flags[i])
                 {                    //Debug.Log("Section " + _hoverSectionKey + " Chunk " + _hoverChunkIdx + " Node " + SceneGraphMath.DecodeMortonToNode((byte)i) + " Flag Mismatch: Live=" + a.Flags[i] + " Blob=" + b.Flags[i]);
                     var pos = SceneGraphMath.GraphToWorldBase(_hoverSectionKey, _hoverChunkIdx, SceneGraphMath.DecodeMortonToNode((byte)i));

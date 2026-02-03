@@ -74,7 +74,11 @@ namespace DotsNetworking.SceneGraph.Authoring
 
                 // Create the entity and add the component
                 var entity = GetEntity(TransformUsageFlags.None);
-                AddComponent(entity, authoring.Address);
+                AddSharedComponent(entity, new SceneSection
+                {
+                    SceneGUID = GetSceneGUID(),
+                    Section = (int)authoring.Address.SectionId
+                });
                 AddComponent(entity, new Components.SectionBlob
                 {
                     BlobRef = blob

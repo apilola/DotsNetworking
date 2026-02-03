@@ -7,6 +7,7 @@ using UnityEngine;
 using DotsNetworking.SceneGraph.Utils;
 using BovineLabs.Core.Camera;
 using DotsNetworking.SceneGraph.Components;
+using System;
 
 namespace DotsNetworking.SceneGraph
 {
@@ -26,14 +27,11 @@ namespace DotsNetworking.SceneGraph
         private const float ConnectionAlpha = 0.5f;
         private const bool DrawChunkBoundsOnly = true;
 
-        private EntityQuery sectionQuery;
         private NativeList<SectionEntry> cachedSections;
 
         public void OnCreate(ref SystemState state)
         {
-            state.RequireForUpdate<SectionBlob>();
-            state.RequireForUpdate<SectionAddress>();
-            sectionQuery = state.GetEntityQuery(ComponentType.ReadOnly<SectionBlob>(), ComponentType.ReadOnly<SectionAddress>());
+            state.RequireForUpdate<SceneSectionRegistry>();
             cachedSections = new NativeList<SectionEntry>(Allocator.Persistent);
         }
 
@@ -58,16 +56,33 @@ namespace DotsNetworking.SceneGraph
             }
 
             cachedSections.Clear();
-            int sectionCount = sectionQuery.CalculateEntityCount();
-            if (cachedSections.Capacity < sectionCount)
-                cachedSections.Capacity = sectionCount;
-            foreach (var (sectionBlob, sectionAddress) in SystemAPI.Query<RefRO<SectionBlob>, RefRO<SectionAddress>>())
+            var registry = SystemAPI.GetSingleton<SceneSectionRegistry>();
+            var manifest = SceneGraphManifest.I;
+            if (manifest == null || !registry.Registry.IsCreated)
+                return;
+
+            if (cachedSections.Capacity < manifest.SectionCount)
+                cachedSections.Capacity = manifest.SectionCount;
+
+            foreach (var subscene in manifest.Subscenes)
             {
-                cachedSections.Add(new SectionEntry
+                foreach (var section in subscene.Sections)
                 {
-                    Blob = sectionBlob.ValueRO,
-                    Address = sectionAddress.ValueRO,
-                });
+                    var address = section.Address;
+                    using var blobHandle = registry.Registry.AcquireRead<BlobAssetReference<Section>>(address);
+                    if (!blobHandle.IsAccessible)
+                        continue;
+
+                    var blobRef = blobHandle.Value;
+                    if (!blobRef.IsCreated)
+                        continue;
+
+                    cachedSections.Add(new SectionEntry
+                    {
+                        Address = address,
+                        BlobRef = blobRef,
+                    });
+                }
             }
             if (cachedSections.Length == 0)
                 return;
@@ -93,10 +108,10 @@ namespace DotsNetworking.SceneGraph
                 {
                     var item = reader.Read<ChunkDrawItem>();
                     var sectionEntry = cachedSections[item.SectionIndex];
-                    if (!sectionEntry.Blob.BlobRef.IsCreated)
+                    if (!sectionEntry.BlobRef.IsCreated)
                         continue;
 
-                    ref var section = ref sectionEntry.Blob.BlobRef.Value;
+                    ref var section = ref sectionEntry.BlobRef.Value;
                     DrawChunk(ref section, item.SectionKey, item.ChunkIndex, item.ChunkIdx);
                 }
                 reader.EndForEachIndex();
@@ -116,7 +131,7 @@ namespace DotsNetworking.SceneGraph
             public void Execute(int index)
             {
                 var sectionEntry = Sections[index];
-                if (!sectionEntry.Blob.BlobRef.IsCreated)
+                if (!sectionEntry.BlobRef.IsCreated)
                     return;
 
                 var sectionKey = SceneGraphMath.UnpackSectionId(sectionEntry.Address.SectionId);
@@ -128,7 +143,7 @@ namespace DotsNetworking.SceneGraph
                         return;
                 }
 
-                ref var section = ref sectionEntry.Blob.BlobRef.Value;
+                ref var section = ref sectionEntry.BlobRef.Value;
                 StreamWriter.BeginForEachIndex(index);
                 for (int i = 0; i < section.Chunks.Length; i++)
                 {
@@ -164,7 +179,7 @@ namespace DotsNetworking.SceneGraph
 
         private struct SectionEntry
         {
-            public SectionBlob Blob;
+            public BlobAssetReference<Section> BlobRef;
             public SectionAddress Address;
         }
 
